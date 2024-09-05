@@ -5,14 +5,14 @@ int main(void){
     char c= get_char("Do you agree? ");
 
     if(c == 'y'){
-        printf("SIM");
+        printf("Agreed\n");
     }
     else{
         if(c == 'n'){
-            printf("NÃO");
+            printf("NÃO\n");
         }
         else{
-            printf("BURRO");
+            printf("BURRO\n");
         }
     }
 }
