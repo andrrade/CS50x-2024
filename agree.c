@@ -4,15 +4,15 @@
 int main(void){
     char c= get_char("Do you agree? ");
 
-    if(c == 'y'){
-        printf("Agreed\n");
+    if(c == 'y' || c == 'Y'){
+        printf("Agreed.\n");
     }
     else{
-        if(c == 'n'){
-            printf("NÃO\n");
+        if(c == 'n' || c == 'N'){
+            printf("Not agreed.\n");
         }
         else{
-            printf("BURRO\n");
+            printf("Error: type 'y' or 'n'\n");
         }
     }
 }
