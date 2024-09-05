@@ -12,7 +12,7 @@ int main(void){
             printf("Not agreed.\n");
         }
         else{
-            printf("Error: type 'y' or 'n'\n");
+            printf("Error: type 'y' or 'n'!!!\n");
         }
     }
 }
