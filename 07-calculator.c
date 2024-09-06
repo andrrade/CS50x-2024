@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int add(int a, int b);
-
 int main(void){
     int x = get_int("x: ");
     int y = get_int("y: ");
 
-    printf("%f\n", add(x, y));
-}
-
-int add(int a, int b){
-    return a + b;
+    float z = (float) x / (float) y;
+    printf("%f\n", z);
 }
