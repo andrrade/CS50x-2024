@@ -4,10 +4,11 @@
 int add(int a, int b);
 
 int main(void){
-    int x = get_float("x: ");
-    int y = get_float("y: ");
+    int x = get_int("x: ");
+    int y = get_int("y: ");
+    int z = add(x, y);
 
-    printf("%f\n", add(x, y));
+    printf("%f\n");
 }
 
 int add(int a, int b){
