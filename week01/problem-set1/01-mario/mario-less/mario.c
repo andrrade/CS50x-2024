@@ -11,7 +11,7 @@ int main(void){
     for (int i = 0; i < n; i++) {
         // Imprime espaços à esquerda
         for (int j = 0; j < n - i - 1; j++) {
-            printf(" ");
+            printf(" "); // print spaces (invisible dots)
         }
         // Imprime hashes
         for (int j = 0; j <= i; j++) {
