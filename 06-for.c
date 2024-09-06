@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 
-void meow(void);
+void meow(int n);
 
 int main(void){
     for(int i = 0; i < 3; i++){
@@ -9,6 +9,6 @@ int main(void){
     }
 }
 
-void meow(void){
+void meow(int n){
     printf("meow\n");
 }
