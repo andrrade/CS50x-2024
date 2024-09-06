@@ -4,7 +4,7 @@
 int main(void){
     int n
     do{
-        n = 
+        n = get_int("Height: ")
     }
     while(n > 0 && n <= 8)
 }
