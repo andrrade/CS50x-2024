@@ -14,9 +14,17 @@ int main(void){
             printf(" ");
         }
 
+
         for(int j = 0; j <= n*2 +2; j++){
-            printf("#");
+            if(j == n - 1){
+                printf(" ");
+            }
+            else{
+                printf("#");
+            }
         }
+
+
         printf("\n");
     }
 
