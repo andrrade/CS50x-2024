@@ -8,8 +8,8 @@ int main(void){
     }
     while (n < 1 || n > 8);
 
-    for (int i = 0; i < n; i++) {
-        // Imprime espaços à esquerda
+    for (int i = 0; i < n; i++) { // rows
+
         for (int j = 0; j < n - i - 1; j++) {
             printf(" "); // print spaces (invisible dots)
         }
