@@ -2,9 +2,9 @@
 #include <cs50.h>
 
 int main(void){
-    int n
+    int n;
     do{
-        n = get_int("Height: ")
+        n = get_int("Height: ");
     }
-    while(n > 0 && n <= 8)
+    while(n < 1 || n > 8);
 }
