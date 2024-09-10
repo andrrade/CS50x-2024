@@ -54,3 +54,20 @@ bool checkSum(long number) {
     // Verifica se a soma é válida (último dígito é 0)
     return (sum % 10 == 0);
 }
+
+void checkCard(long number){
+int length = get_length(number);
+    long prefix = get_prefix(number);
+
+    if (!is_valid(number)) {
+        printf("INVALID\n");
+    } else if (length == 15 && (prefix == 34 || prefix == 37)) {
+        printf("AMEX\n");
+    } else if (length == 16 && (prefix >= 51 && prefix <= 55)) {
+        printf("MASTERCARD\n");
+    } else if ((length == 13 || length == 16) && (prefix / 10 == 4)) {
+        printf("VISA\n");
+    } else {
+        printf("INVALID\n");
+    }
+}
