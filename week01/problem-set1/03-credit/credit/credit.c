@@ -1,29 +1,38 @@
 #include <cs50.h>
 #include <stdio.h>
 
+// Protótipos das funções
 long input(void);
-long checkSum(long number);
-// long checkCard(long number);
-// long print();
+bool checkSum(long number);
 
 int main(void) {
+    // Obtém o número do usuário
     long number = input();
-    long sum = checkSum(number);
-    printf("Checksum: %ld\n", sum);
-    printf("Checksum: %ld\n", valid);
+
+    // Verifica a validade do número
+    bool valid = checkSum(number);
+
+    // Exibe se o número é válido ou inválido
+    if (valid) {
+        printf("VALID\n");
+    } else {
+        printf("INVALID\n");
+    }
+
     return 0;
 }
 
-long input(){
+// Função para ler o número do usuário
+long input(void) {
     long number;
-
     do {
-      number = get_long("Number: ");
+        number = get_long("Number: ");
     } while (number <= 0);
     return number;
 }
 
-long checkSum(long number){
+// Função para calcular a soma de verificação e verificar validade
+bool checkSum(long number) {
     long sum = 0;
     bool alternate = false;
 
@@ -42,17 +51,6 @@ long checkSum(long number){
         alternate = !alternate;
     }
 
-    return sum;
+    // Verifica se a soma é válida (último dígito é 0)
+    return (sum % 10 == 0);
 }
-
-long checkCard(long sum){
-    bool valid = false;
-    if(sum % 10 == 0){
-        valid = !valid;
-    }
-    return valid;
-}
-
-// long print (){
-
-// }
