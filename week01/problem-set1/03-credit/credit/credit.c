@@ -16,7 +16,7 @@ int main(void) {
     }
 
     // Verifica o comprimento e o prefixo
-    if (length < 13 || lenght > 16) {
+    if (length < 13 || length > 16) {
         printf("INVALID\n");
     } else if ((length >= 13 && length <= 16) && (number / 1000000000000 == 34 || number / 1000000000000 == 37)) {
         printf("AMEX\n");
