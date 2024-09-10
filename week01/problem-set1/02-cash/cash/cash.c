@@ -6,7 +6,7 @@ int main(void){
     float change;
 
     do{
-        change = get_int("Change owed: ");
+        change = get_float("Change owed: ");
     }
     while(change < 0);
 
@@ -18,7 +18,7 @@ int main(void){
     int dimes = cents / 10;
     cents %= 10;
 
-    int nickles = nickles / 5;
+    int nickles = cents / 5;
     cents %= 5;
 
     int pennies = cents / 1;
