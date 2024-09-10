@@ -25,6 +25,10 @@ int main(void){
 
     int pennies = calculate_pennies(cents);
     cents -= (pennies * 1);
+
+    int total_coins = quarters + dimes + nickles + pennies;
+
+    printf("Total coins: %d\n", total_coins);
 }
 
 int calculate_quarters(int cents){
