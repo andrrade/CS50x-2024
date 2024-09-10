@@ -18,11 +18,11 @@ int main(void){
 
     int total_coins = quarters + dimes + nickles + pennies;
 
-    printf(total_coins);
+    printf("Total coins: %d\n", total_coins);
 }
 
 int calculate_coins(int *cents, int type){
     int coins = *cents / type;
     *cents %= type;
-    return coins
+    return coins;
 }
