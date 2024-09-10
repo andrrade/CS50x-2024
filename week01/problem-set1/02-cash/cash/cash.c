@@ -2,19 +2,25 @@
 #include <cs50.h>
 
 int main(void){
-    float change;
+    int cents;
 
     do{
-        change = get_float("Change owed: ");
+        cents = get_int("Change owed: ");
     }
-    while(change < 0);
+    while(cents < 0);
 
+    int quarters = calculate_coins(&cents, 25);
+    int dimes = calculate_coins(&cents, 10);
+    int nickles = calculate_coins(&cents, 5);
+    int pennies = calculate_coins(&cents, 1);
 
     int total_coins = quarters + dimes + nickles + pennies;
 
     printf(total_coins);
 }
 
-int calculate_coins(){
-    
+int calculate_coins(int *cents, int type){
+    int coins = *cents / type;
+    *cents %= type;
+    return coins
 }
