@@ -9,7 +9,11 @@ int main(void){
     float m1 = 0.1;
 
     do{
-        change = get_float(Change owed: );
+        change = get_float("Change owed: ");
     }
     while(change <= 0);
+
+    if(change % m25 == 0){
+        
+    }
 }
