@@ -4,17 +4,17 @@
 // Protótipos das funções
 long input(void);
 bool checkSum(long number);
+int get_length(long number);
+int get_prefix(long number);
+void checkCard(long number);
 
 int main(void) {
     // Obtém o número do usuário
     long number = input();
 
-    // Verifica a validade do número
-    bool valid = checkSum(number);
-
-    // Exibe se o número é válido ou inválido
-    if (valid) {
-        printf("VALID\n");
+    // Verifica se o número é válido
+    if (checkSum(number)) {
+        checkCard(number);
     } else {
         printf("INVALID\n");
     }
@@ -55,13 +55,30 @@ bool checkSum(long number) {
     return (sum % 10 == 0);
 }
 
-void checkCard(long number){
-int length = get_length(number);
-    long prefix = get_prefix(number);
+// Função para obter o comprimento do número do cartão
+int get_length(long number) {
+    int length = 0;
+    while (number > 0) {
+        number /= 10;
+        length++;
+    }
+    return length;
+}
 
-    if (!is_valid(number)) {
-        printf("INVALID\n");
-    } else if (length == 15 && (prefix == 34 || prefix == 37)) {
+// Função para obter o prefixo dos primeiros dígitos do número do cartão
+int get_prefix(long number) {
+    while (number >= 100) {
+        number /= 10;
+    }
+    return number;
+}
+
+// Função para verificar e imprimir o tipo de cartão
+void checkCard(long number) {
+    int length = get_length(number);
+    int prefix = get_prefix(number);
+
+    if (length == 15 && (prefix == 34 || prefix == 37)) {
         printf("AMEX\n");
     } else if (length == 16 && (prefix >= 51 && prefix <= 55)) {
         printf("MASTERCARD\n");
