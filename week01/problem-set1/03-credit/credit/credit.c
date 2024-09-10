@@ -20,7 +20,7 @@ long input(){
 }
 
 long checkSum(long number){
-    number / 10 
+    ((number / 10) % 10) * 2
 }
 
 // long checkCard(long number){
