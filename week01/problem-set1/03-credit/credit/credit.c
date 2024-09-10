@@ -44,9 +44,12 @@ long checkSum(long number){
     return sum;
 }
 
-// long checkCard(long number){
-
-// }
+long checkCard(long sum){
+    bool valid = false;
+    if(sum % 10 == 0){
+        valid;
+    }
+}
 
 // long print (){
 
