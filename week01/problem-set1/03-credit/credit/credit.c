@@ -1,34 +1,30 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int main(void){
-    do{
-        long number = get_long("Number: ");
+int main(void) {
+    long number;
+
+    do {
+        number = get_long("Number: ");
     } while (number <= 0);
 
-    if(number.lenght() < 13){
-        printf("INVALID");
+    int length = 0;
+    long temp = number;
+    while (temp > 0) {
+        temp /= 10;
+        length++;
     }
-    else{
-        if(number.lenght() >= 13 && <= 16){
-            if(number starts == 34 || 37){
 
-            }
-        }
-        else{
-            if(number.lenght() == 16){
-                if(number starts >= 51 && <= 55){
-
-            }
-            }
-            else{
-                if(number.lenght() == 15){
-                    if(number starts == 4);
-                }
-                else{
-                    printf("INVALID")
-                }
-            }
-        }
+    // Verifica o comprimento e o prefixo
+    if (length < 13) {
+        printf("INVALID\n");
+    } else if ((length >= 13 && length <= 16) && (number / 1000000000000 == 34 || number / 1000000000000 == 37)) {
+        printf("AMEX\n");
+    } else if (length == 16 && (number / 100000000000000 >= 51 && number / 100000000000000 <= 55)) {
+        printf("MASTERCARD\n");
+    } else if (length == 15 && (number / 10000000000000 == 4)) {
+        printf("VISA\n");
+    } else {
+        printf("INVALID\n");
     }
 }
