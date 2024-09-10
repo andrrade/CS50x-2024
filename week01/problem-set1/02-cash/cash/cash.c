@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <cs50.h>
 
+int calculate_coins(int *cents, int type);
+
 int main(void){
     int cents;
 
