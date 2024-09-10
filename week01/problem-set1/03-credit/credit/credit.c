@@ -8,8 +8,9 @@ long checkSum(long number);
 
 int main(void) {
     long number = input();
-    checkSum(long number);
-    printf(checkSum())
+    long sum = checkSum(number);
+    printf("Checksum: %ld\n", sum);
+    return 0;
 }
 
 long input(){
@@ -22,8 +23,25 @@ long input(){
 }
 
 long checkSum(long number){
-    product = ((number / 10) % 10) * 2;
-    return product;
+    long sum = 0;
+    bool alternative = false;
+
+    while (number > 0) {
+        int digit = number % 10;
+        number /= 10;
+
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+
+        sum += digit;
+        alternate = !alternate;
+    }
+
+    return sum;
 }
 
 // long checkCard(long number){
