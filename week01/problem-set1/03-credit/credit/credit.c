@@ -10,6 +10,7 @@ int main(void) {
     long number = input();
     long sum = checkSum(number);
     printf("Checksum: %ld\n", sum);
+    printf("Checksum: %ld\n", valid);
     return 0;
 }
 
@@ -47,8 +48,9 @@ long checkSum(long number){
 long checkCard(long sum){
     bool valid = false;
     if(sum % 10 == 0){
-        valid;
+        valid = !valid;
     }
+    return valid;
 }
 
 // long print (){
