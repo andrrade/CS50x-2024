@@ -44,14 +44,14 @@ long input(void)
 // Function to calculate the checksum and verify validity using Luhn's algorithm
 bool checkSum(long number)
 {
-    long sum = 0;          // Variable to store the sum of digits
+    long sum = 0;           // Variable to store the sum of digits
     bool alternate = false; // Flag to alternate between multiplying and not
 
     // Iterate over the digits of the number
     while (number > 0)
     {
         int digit = number % 10; // Get the last digit
-        number /= 10; // Remove the last digit from the number
+        number /= 10;            // Remove the last digit from the number
 
         // If alternate is true, multiply the digit by 2
         if (alternate)
@@ -64,7 +64,7 @@ bool checkSum(long number)
             }
         }
 
-        sum += digit; // Add the processed digit to the sum
+        sum += digit;           // Add the processed digit to the sum
         alternate = !alternate; // Toggle the alternate flag
     }
 
@@ -80,7 +80,7 @@ int get_length(long number)
     while (number > 0)
     {
         number /= 10; // Remove the last digit
-        length++; // Increment the length
+        length++;     // Increment the length
     }
     return length;
 }
