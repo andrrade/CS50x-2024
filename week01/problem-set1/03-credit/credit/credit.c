@@ -16,16 +16,13 @@ int main(void) {
         length++;
     }
 
-    // Verifica o comprimento e o prefixo
     // Obtemos o prefixo dos primeiros dígitos para comparação
-    int prefix = number;
+    long prefix = number;
     while (prefix >= 100) {
         prefix /= 10;
     }
 
-    if (length < 13 || length > 16) {
-        printf("INVALID\n");
-    } else if (length == 15 && (prefix == 34 || prefix == 37)) {
+    if (length == 15 && (prefix == 34 || prefix == 37)) {
         printf("AMEX\n");
     } else if (length == 16 && (prefix >= 51 && prefix <= 55)) {
         printf("MASTERCARD\n");
