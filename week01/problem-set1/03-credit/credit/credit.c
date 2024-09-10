@@ -24,7 +24,7 @@ long input(){
 
 long checkSum(long number){
     long sum = 0;
-    bool alternative = false;
+    bool alternate = false;
 
     while (number > 0) {
         int digit = number % 10;
