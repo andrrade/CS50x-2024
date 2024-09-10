@@ -23,7 +23,6 @@ int main(void) {
     }
 
     if (length == 15 && (prefix == 34 || prefix == 37)) {
-        
         printf("AMEX\n");
     } else if (length == 16 && (prefix >= 51 && prefix <= 55)) {
         printf("MASTERCARD\n");
@@ -33,3 +32,4 @@ int main(void) {
         printf("INVALID\n");
     }
 }
+
