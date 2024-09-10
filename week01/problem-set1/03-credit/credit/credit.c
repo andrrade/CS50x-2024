@@ -8,6 +8,8 @@ long checkSum(long number);
 
 int main(void) {
     long number = input();
+    checkSum(long number);
+    printf(checkSum())
 }
 
 long input(){
@@ -20,7 +22,8 @@ long input(){
 }
 
 long checkSum(long number){
-    ((number / 10) % 10) * 2
+    product = ((number / 10) % 10) * 2;
+    return product;
 }
 
 // long checkCard(long number){
