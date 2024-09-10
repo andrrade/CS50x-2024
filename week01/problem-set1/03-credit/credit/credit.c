@@ -8,14 +8,18 @@ int get_length(long number);
 int get_prefix(long number);
 void checkCard(long number);
 
-int main(void) {
+int main(void)
+{
     // Obtém o número do usuário
     long number = input();
 
     // Verifica se o número é válido
-    if (checkSum(number)) {
+    if (checkSum(number))
+    {
         checkCard(number);
-    } else {
+    }
+    else
+    {
         printf("INVALID\n");
     }
 
@@ -23,26 +27,33 @@ int main(void) {
 }
 
 // Função para ler o número do usuário
-long input(void) {
+long input(void)
+{
     long number;
-    do {
+    do
+    {
         number = get_long("Number: ");
-    } while (number <= 0);
+    }
+    while (number <= 0);
     return number;
 }
 
 // Função para calcular a soma de verificação e verificar validade
-bool checkSum(long number) {
+bool checkSum(long number)
+{
     long sum = 0;
     bool alternate = false;
 
-    while (number > 0) {
+    while (number > 0)
+    {
         int digit = number % 10;
         number /= 10;
 
-        if (alternate) {
+        if (alternate)
+        {
             digit *= 2;
-            if (digit > 9) {
+            if (digit > 9)
+            {
                 digit -= 9;
             }
         }
@@ -56,9 +67,11 @@ bool checkSum(long number) {
 }
 
 // Função para obter o comprimento do número do cartão
-int get_length(long number) {
+int get_length(long number)
+{
     int length = 0;
-    while (number > 0) {
+    while (number > 0)
+    {
         number /= 10;
         length++;
     }
@@ -66,25 +79,35 @@ int get_length(long number) {
 }
 
 // Função para obter o prefixo dos primeiros dígitos do número do cartão
-int get_prefix(long number) {
-    while (number >= 100) {
+int get_prefix(long number)
+{
+    while (number >= 100)
+    {
         number /= 10;
     }
     return number;
 }
 
 // Função para verificar e imprimir o tipo de cartão
-void checkCard(long number) {
+void checkCard(long number)
+{
     int length = get_length(number);
     int prefix = get_prefix(number);
 
-    if (length == 15 && (prefix == 34 || prefix == 37)) {
+    if (length == 15 && (prefix == 34 || prefix == 37))
+    {
         printf("AMEX\n");
-    } else if (length == 16 && (prefix >= 51 && prefix <= 55)) {
+    }
+    else if (length == 16 && (prefix >= 51 && prefix <= 55))
+    {
         printf("MASTERCARD\n");
-    } else if ((length == 13 || length == 16) && (prefix / 10 == 4)) {
+    }
+    else if ((length == 13 || length == 16) && (prefix / 10 == 4))
+    {
         printf("VISA\n");
-    } else {
+    }
+    else
+    {
         printf("INVALID\n");
     }
 }
