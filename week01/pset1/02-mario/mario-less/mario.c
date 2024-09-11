@@ -13,15 +13,15 @@ int main(void)
 
     for (int i = 0; i < height; i++)
     {
-        int spaces = i;           // O número de espaços começa de 0 e aumenta
-        int bricks = height - i;  // O número de blocos diminui
+        int spaces = 0;            // Mantemos o espaço sempre zero para alinhar à esquerda
+        int bricks = height - i;   // O número de blocos diminui a cada linha
         print_row(spaces, bricks);
     }
 }
 
 void print_row(int spaces, int bricks)
 {
-    // Imprime espaços
+    // Imprime espaços (sempre zero neste caso)
     for (int i = 0; i < spaces; i++)
     {
         printf(" ");
