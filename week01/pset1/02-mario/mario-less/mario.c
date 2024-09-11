@@ -7,6 +7,7 @@ int main(void)
 {
     int height;
     int spaces;
+    spaces = height - 1;
 
     do{
         height = get_int("Heigh: ");
@@ -16,7 +17,7 @@ int main(void)
         print_row(i + 1);
     }
 
-    spaces = height - 1;
+
 }
 
 void print_row(int spaces, int bricks){
