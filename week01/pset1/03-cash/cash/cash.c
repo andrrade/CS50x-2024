@@ -15,7 +15,8 @@ int main(void)
     int nickles = 5;
     int pennies 1;
 
-    
+    how_many();
+
 
 
 }
