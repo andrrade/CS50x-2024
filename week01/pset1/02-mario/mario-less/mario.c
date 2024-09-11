@@ -14,7 +14,7 @@ int main(void)
     } while(height < 1 || height > 8);
 
     for(int i = 0; i < height; i++){
-        print_row(i + 1);
+        print_row(spaces, i + 1);
     }
 
 
