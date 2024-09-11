@@ -10,7 +10,12 @@ int main(void)
     }
     while(change < 0);
 
-    int quar
+    int quarters = 25;
+    int dimes 10;
+    int nickles = 5;
+    int pennies 1;
+
+    
 
 
 }
