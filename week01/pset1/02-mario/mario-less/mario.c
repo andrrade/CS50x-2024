@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void print_row(int bricks);
+void print_col(int height);
 
 int main(void){
     int height;
@@ -10,14 +11,21 @@ int main(void){
         height = get_int("Height: ");
     } while(height < 1 || height > 8);
 
-    print_row(height);
+    print_col(height);
+
 }
 
-void print_row(int bricks);
+void print_row(int bricks)
 {
     for(int i = 0; i < bricks; i++)
     {
         printf("#");
     }
     printf("\n");
+}
+
+void print_col(int height){
+    for(int i = 0; i < height; i++){
+        print_row(i + 1);
+    }
 }
