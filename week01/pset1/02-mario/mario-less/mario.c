@@ -15,7 +15,7 @@ int main(void){
 
 }
 
-void print_row(int bricks)
+void print_row(int spaces, int bricks)
 {
     for(int i = 0; i < bricks; i++)
     {
@@ -26,6 +26,7 @@ void print_row(int bricks)
 
 void print_col(int height){
     for(int i = 0; i < height; i++){
+        int space = height - i - 1;
         print_row(i + 1);
     }
 }
