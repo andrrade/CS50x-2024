@@ -4,6 +4,7 @@
 long get_length(long number);
 long first_numbers(long number);
 void what_card(long number);
+void sum(long number);
 
 int main(void)
 {
@@ -17,6 +18,7 @@ int main(void)
     get_length(number);
     first_numbers(number);
     what_card(number);
+    sum(number);
 }
 
 long get_length(long number)
@@ -60,4 +62,9 @@ void what_card(long number)
     {
         printf("INVALID\n");
     }
+}
+
+void sum(long number)
+{
+    
 }
