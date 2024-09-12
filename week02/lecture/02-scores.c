@@ -1,9 +1,9 @@
 #include <cs50.h>
 #include <stdio.h>
+const int N;
 
 int main(void)
 {
-    const int N;
     int scores[N]; // declara que o vetor terá 3 espaços na memória
 
     for (int i = 0; i < N; i++)
