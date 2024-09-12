@@ -106,5 +106,5 @@ bool get_sum(long number)
     }
 
     return (sum % 10 ==
-        0); // Retorna true se a soma total for divisível por 10, caso contrário, false.
+            0); // Retorna true se a soma total for divisível por 10, caso contrário, false.
 }
