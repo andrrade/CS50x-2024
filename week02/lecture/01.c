@@ -1,8 +1,18 @@
 #include <cs50.h>
 #include <stdio.h>
 
+void print_column(int height);
+
 int main(void)
 {
-    string name = get_string("What's your name? ");
-    printf("hello, %s!\n", name);
+    int h = get_int("Height: ");
+    print_column(h);
+}
+
+void print_column(int height)
+{
+    for (int i = 0; i <= height; i++)
+    {
+        printf("#\n");
+    }
 }
