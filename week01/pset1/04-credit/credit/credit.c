@@ -66,5 +66,6 @@ void what_card(long number)
 
 void sum(long number)
 {
+    last = number / 10;
     
 }
