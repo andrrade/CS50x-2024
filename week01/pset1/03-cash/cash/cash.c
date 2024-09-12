@@ -1,6 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
+int how_much(int cents, int type);
+
 // função principal
 int main(void)
 {
@@ -10,13 +12,18 @@ int main(void)
     }
     while(change < 0);
 
-    int quarters = 25;
-    int dimes 10;
-    int nickles = 5;
-    int pennies 1;
-
-    how_many();
-
+    int quarters = how_much(int change, 25);
+    
+    int dimes = how_much(int change, 25);
+    int nickles = how_much(int change, 25);
+    int pennies = how_much(int change, 25);
 
 
+
+
+
+}
+
+int how_much(int cents, int type){
+    return cents / type;
 }
