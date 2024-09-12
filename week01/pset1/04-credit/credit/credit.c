@@ -95,15 +95,9 @@ bool get_sum(long number)
         if (troca) // Verifica se o dígito deve ser multiplicado
         {
             digit *= 2; // Multiplica o dígito por 2
-            if (digit >= 10)
+            if (digit > 9)
             {
-                // Se o número contiver 2 casas decimais, realiza a soma entre os dígitos
-                // individuais
-                digit = (digit % 10) + (digit / 10);
-                // Ex: se digit for 14, 14 % 10 resulta em 4 (último)
-                // e 14 / 10 resulta em 1 (primeiro)
-                // Esta verificação é apenas para números de duas casas decimais,
-                // pois o maior número possível é 18 (9 * 2)
+                digit -= 9;
             }
         }
         sum += digit;   // Adiciona o dígito (ou a soma dos dígitos) à soma total
