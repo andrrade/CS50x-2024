@@ -70,26 +70,28 @@ void get_sum(long number)
     bool troca = false;
     while (number > 0)
     {
-        long digit =
-        number % 10; // armazena o último dígito de number
+        long digit = number % 10; // armazena o último dígito de number
         // Ex: se number for 1234, então 1234 % 10 resulta em 4
         number /= 10; // remove o último dígito encontrado
         // Ex: se number for 1234, então 1234 / 10 resulta em 123.
 
-        if(troca)
+        if (troca)
         {
             digit *= 2;
             if (digit >= 10) // Se o número conter 2 casas decimais...
             {
-                digit = (digit % 10) + (digit / 10); // soma o último e o primeiro dígito do número, respectivamente
+                digit =
+                    (digit % 10) +
+                    (digit / 10); // soma o último e o primeiro dígito do número, respectivamente
             }
             // se digit for 14, 14 % 10 resulta em 4 (último)
             // se digit for 14, 14 / 10 resulta em 1 (em divisão inteira) (primeiro)
+            // verificação apenas para duas casas decimais, pois o maior número que pode ser
+            // encontrado é 18 (9 * 2)
         }
         sum += digit;
         troca = !troca;
     }
-
 
     printf("Sum = %li\n", sum);
 }
