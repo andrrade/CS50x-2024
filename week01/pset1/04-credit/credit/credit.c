@@ -5,7 +5,7 @@
 long get_length(long number);
 long first_numbers(long number);
 void what_card(long number);
-void get_sum(long number);
+bool get_sum(long number);
 
 int main(void)
 {
@@ -18,8 +18,16 @@ int main(void)
 
     get_length(number);   // Obtém a quantidade de dígitos do número
     first_numbers(number); // Obtém os primeiros dígitos do número
-    what_card(number);    // Determina o tipo de cartão com base no número
+
     get_sum(number);      // Calcula a soma para o algoritmo de Luhn
+
+    if(get_sum(number)){
+        what_card(number);    // Determina o tipo de cartão com base no número
+    }
+    else
+    {
+        prinf("INVALID");
+    }
 }
 
 // Função para determinar o comprimento (número de dígitos) do cartão
@@ -71,7 +79,7 @@ void what_card(long number)
 }
 
 // Função para calcular a soma dos dígitos usando o algoritmo de Luhn
-void get_sum(long number)
+bool get_sum(long number)
 {
     long sum = 0; // Inicializa a soma
     bool troca = false; // Flag para alternar a multiplicação
@@ -100,5 +108,5 @@ void get_sum(long number)
         troca = !troca; // Alterna a flag para o próximo dígito
     }
 
-    printf("Sum = %li\n", sum); // Imprime o resultado da soma
+    return (sum % 10 == 0); // Return true if the total sum modulo 10 is 0 (valid), otherwise false (invalid)
 }
