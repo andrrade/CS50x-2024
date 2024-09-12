@@ -7,7 +7,7 @@ int main(void){
     int number;
     do
     {
-        number = get_int("Number ");
+        number = get_int("Number: ");
     }
     while (number < 0);
 
@@ -16,10 +16,10 @@ int main(void){
 
 void length(int card)
 {
-    int i;
+    int i = 0;
     while (card > 0)
     {
-        card / 10;
+        card /= 10;
         i++;
     }
     printf("%i\n", i);
