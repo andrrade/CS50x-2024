@@ -42,7 +42,7 @@ long get_length(long number)
 long first_numbers(long number)
 {
     int i = 0;
-    while (number > 99) // Reduz o número até restarem apenas os dois primeiros dígitos
+    while (number >= 100) // Reduz o número até restarem apenas os dois primeiros dígitos
     {
         number /= 10; // Remove o último dígito
     }
