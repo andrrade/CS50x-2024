@@ -7,7 +7,7 @@ int main(void){
     long number;
     do
     {
-        number = get_int("Number: ");
+        number = get_long("Number: ");
     }
     while (number < 0);
 
