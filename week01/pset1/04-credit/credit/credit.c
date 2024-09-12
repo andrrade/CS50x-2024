@@ -66,6 +66,8 @@ void what_card(long number)
 
 void sum(long number)
 {
-    last = number / 10;
-    
+
+    last = number %= 10;
+    other = number =/ 10;
+    printf("Last%li\nOther")
 }
