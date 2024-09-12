@@ -66,8 +66,13 @@ void what_card(long number)
 
 void sum(long number)
 {
+    bool = false
+    while (number > 0)
+    {
+        digit = number /= 10; // last digit
 
-    last = number %= 10;
-    other = number =/ 10;
+    }
+
+
     printf("Last%li\nOther")
 }
