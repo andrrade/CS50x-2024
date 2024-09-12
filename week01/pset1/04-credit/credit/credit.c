@@ -16,11 +16,6 @@ int main(void)
     }
     while (number < 0); // Verifica se o número é positivo
 
-    get_length(number);    // Obtém a quantidade de dígitos do número
-    first_numbers(number); // Obtém os primeiros dígitos do número
-
-    get_sum(number); // Calcula a soma para o algoritmo de Luhn
-
     if (get_sum(number)) // Verifica se o número é válido pelo algoritmo de Luhn
     {
         what_card(number); // Determina o tipo de cartão com base no número
