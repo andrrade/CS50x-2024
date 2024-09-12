@@ -66,20 +66,20 @@ void what_card(long number)
 
 void get_sum(long number)
 {
-    sum = 0;
-    bool = troca;
+    long sum = 0;
+    bool troca = false;
     while (number > 0)
     {
-        digit = number /= 10; // last digit
+        long digit = number /= 10; // last digit
 
         if(troca)
         {
             digit *= 2;
         }
-        sum += digit
-        troca = !troca
+        sum += digit;
+        troca = !troca;
     }
 
 
-    printf("Last%li\nOther")
+    printf("Sum = %li\n", sum);
 }
