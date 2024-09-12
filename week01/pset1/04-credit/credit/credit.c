@@ -56,7 +56,7 @@ void what_card(long number)
     int firsts = first_numbers(number); // Obtém os dois primeiros dígitos
 
     // Verifica o tipo de cartão com base no comprimento e nos primeiros dígitos
-    if ((length == 15) && (firsts >= 34 && firsts <= 37))
+    if ((length == 15) && (firsts == 34 && firsts == 37))
     {
         printf("AMEX\n");
     }
@@ -64,7 +64,7 @@ void what_card(long number)
     {
         printf("MASTERCARD\n");
     }
-    else if ((length >= 13 && length <= 16) && ((firsts / 10) == 4))
+    else if ((length == 13 || length == 16) && ((firsts / 10) == 4))
     {
         printf("VISA\n");
     }
