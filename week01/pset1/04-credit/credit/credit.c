@@ -70,7 +70,8 @@ void get_sum(long number)
     bool troca = false;
     while (number > 0)
     {
-        long digit = number /= 10; // last digit
+        long digit =
+        number /= 10; // last digit
 
         if(troca)
         {
