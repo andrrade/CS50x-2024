@@ -12,14 +12,17 @@ int main(void)
     }
     while(change < 0);
 
-    int quarters = how_much(int change, 25);
+    int quarters = how_much(change, 25);
     change -= quarters;
-    int dimes = how_much(int change, 25);
+    int dimes = how_much(change, 10);
     change -= dimes;
-    int nickles = how_much(int change, 25);
+    int nickles = how_much(change, 5);
     change -= nickles;
-    int pennies = how_much(int change, 25);
+    int pennies = how_much(change, 1);
     change -= pennies;
+
+    int total_coins = quarters + dimes + nickles + pennies;
+    printf("%i\n", total_coins);
 }
 
 int how_much(int cents, int type){
