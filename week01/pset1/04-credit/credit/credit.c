@@ -14,13 +14,13 @@ int main(void){
     length(number);
 }
 
-void length(long card)
+long length(long card)
 {
-    long i = 0;
+    int i = 0;
     while (card > 0)
     {
         card /= 10;
         i++;
     }
-    printf("%li\n", i);
+    printf("%i\n", i);
 }
