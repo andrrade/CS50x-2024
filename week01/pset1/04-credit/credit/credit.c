@@ -43,15 +43,15 @@ void what_card(long card_number)
 {
     int length = get_length(card_number);
     int firsts = first_numbers(card_number);
-    if ((length == 15) && (first_numbers >= 34 || first_numbers <= 37))
+    if ((length == 15) && (firsts >= 34 && firsts <= 37))
     {
         printf("AMEX\n");
     }
-    else if ((length == 16) && (first_numbers >= 51 && first_numbers <= 55))
+    else if ((length == 16) && (firsts >= 51 && firsts <= 55))
     {
         printf("MASTERCARD\n");
     }
-    else if ((length >= 13 && length <= 16) && ((first_numbers / 10) == 4))
+    else if ((length >= 13 && length <= 16) && ((firsts / 10) == 4))
     {
         printf("VISA\n");
     }
