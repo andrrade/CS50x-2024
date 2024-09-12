@@ -17,8 +17,9 @@ int main(void){
 void length(int card)
 {
     int i;
-    while ((card / 10) > 0)
+    while (card > 0)
     {
+        card / 10;
         i++;
     }
     printf("%i\n", i);
