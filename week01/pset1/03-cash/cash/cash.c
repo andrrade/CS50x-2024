@@ -13,15 +13,13 @@ int main(void)
     while(change < 0);
 
     int quarters = how_much(int change, 25);
-    
+    change -= quarters;
     int dimes = how_much(int change, 25);
+    change -= dimes;
     int nickles = how_much(int change, 25);
+    change -= nickles;
     int pennies = how_much(int change, 25);
-
-
-
-
-
+    change -= pennies;
 }
 
 int how_much(int cents, int type){
