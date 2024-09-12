@@ -77,6 +77,10 @@ void get_sum(long number)
         if(troca)
         {
             digit *= 2;
+            if (digit > 9) // Se o resultado for maior que 9, some os dígitos individuais
+            {
+                digit = (digit % 10) + (digit / 10);
+            }
         }
         sum += digit;
         troca = !troca;
