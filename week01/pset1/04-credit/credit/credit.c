@@ -4,7 +4,7 @@
 long get_length(long number);
 long first_numbers(long number);
 void what_card(long number);
-void sum(long number);
+void get_sum(long number);
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
     get_length(number);
     first_numbers(number);
     what_card(number);
-    sum(number);
+    get_sum(number);
 }
 
 long get_length(long number)
@@ -64,13 +64,20 @@ void what_card(long number)
     }
 }
 
-void sum(long number)
+void get_sum(long number)
 {
-    bool = false
+    sum = 0;
+    bool = troca;
     while (number > 0)
     {
         digit = number /= 10; // last digit
 
+        if(troca)
+        {
+            digit *= 2;
+        }
+        sum += digit
+        troca = !troca
     }
 
 
