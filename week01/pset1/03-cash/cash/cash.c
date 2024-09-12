@@ -7,10 +7,12 @@ int how_much(int cents, int type);
 int main(void)
 {
     int change;
-    do{
-        change = get_int("Change owed: "); // input para receber o valor que o usuário precisa de troco
+    do
+    {
+        change =
+            get_int("Change owed: "); // input para receber o valor que o usuário precisa de troco
     }
-    while(change < 0);
+    while (change < 0);
 
     int quarters = how_much(change, 25);
     change -= quarters * 25;
@@ -25,6 +27,7 @@ int main(void)
     printf("%i\n", total_coins);
 }
 
-int how_much(int cents, int type){
+int how_much(int cents, int type)
+{
     return cents / type;
 }
