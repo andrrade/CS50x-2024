@@ -1,7 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
-void length(long number);
+long length(long card);
+void first_numbers(long all_numbers);
 
 int main(void){
     long number;
@@ -12,6 +13,7 @@ int main(void){
     while (number < 0);
 
     length(number);
+    first_numbers(number);
 }
 
 long length(long card)
@@ -22,5 +24,16 @@ long length(long card)
         card /= 10;
         i++;
     }
-    printf("%i\n", i);
+    return i;
 }
+
+void first_numbers(long all_numbers)
+{
+    int i = 0;
+    while (all_numbers > 99)
+    {
+        all_numbers /= 10;
+    }
+    printf("%li\n", all_numbers);
+}
+
