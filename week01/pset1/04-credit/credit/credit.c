@@ -1,10 +1,9 @@
 #include <cs50.h>
 #include <stdio.h>
 
-long get_length(long card);
-long first_numbers(long all_numbers);
-void what_card(long card_number);
-long sum();
+long get_length(long number);
+long first_numbers(long number);
+void what_card(long number);
 
 int main(void)
 {
@@ -20,31 +19,31 @@ int main(void)
     what_card(number);
 }
 
-long get_length(long card)
+long get_length(long number)
 {
     int i = 0;
-    while (card > 0)
+    while (number > 0)
     {
-        card /= 10;
+        number /= 10;
         i++;
     }
     return i;
 }
 
-long first_numbers(long all_numbers)
+long first_numbers(long number)
 {
     int i = 0;
-    while (all_numbers > 99)
+    while (number > 99)
     {
-        all_numbers /= 10;
+        number /= 10;
     }
-    return all_numbers;
+    return number;
 }
 
-void what_card(long card_number)
+void what_card(long number)
 {
-    int length = get_length(card_number);
-    int firsts = first_numbers(card_number);
+    int length = get_length(number);
+    int firsts = first_numbers(number);
     if ((length == 15) && (firsts >= 34 && firsts <= 37))
     {
         printf("AMEX\n");
