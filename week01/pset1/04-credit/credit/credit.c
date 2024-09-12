@@ -71,16 +71,20 @@ void get_sum(long number)
     while (number > 0)
     {
         long digit =
-        number % 10;
-        number /= 10; // last digit
+        number % 10; // armazena o último dígito de number
+        // Ex: se number for 1234, então 1234 % 10 resulta em 4
+        number /= 10; // remove o último dígito encontrado
+        // Ex: se number for 1234, então 1234 / 10 resulta em 123.
 
         if(troca)
         {
             digit *= 2;
-            if (digit > 9) // Se o resultado for maior que 9, some os dígitos individuais
+            if (digit >= 10) // Se o número conter 2 casas decimais...
             {
-                digit = (digit % 10) + (digit / 10);
+                digit = (digit % 10) + (digit / 10); // soma o último e o primeiro dígito do número, respectivamente
             }
+            // se digit for 14, 14 % 10 resulta em 4 (último)
+            // se digit for 14, 14 / 10 resulta em 1 (em divisão inteira) (primeiro)
         }
         sum += digit;
         troca = !troca;
