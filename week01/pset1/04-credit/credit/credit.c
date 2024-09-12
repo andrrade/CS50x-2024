@@ -1,10 +1,10 @@
 #include <cs50.h>
 #include <stdio.h>
 
-void length(int number);
+void length(long number);
 
 int main(void){
-    int number;
+    long number;
     do
     {
         number = get_int("Number: ");
@@ -14,13 +14,13 @@ int main(void){
     length(number);
 }
 
-void length(int card)
+void length(long card)
 {
-    int i = 0;
+    long i = 0;
     while (card > 0)
     {
         card /= 10;
         i++;
     }
-    printf("%i\n", i);
+    printf("%li\n", i);
 }
