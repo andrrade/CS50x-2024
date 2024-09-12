@@ -4,6 +4,7 @@
 long get_length(long card);
 long first_numbers(long all_numbers);
 void what_card(long card_number);
+long sum();
 
 int main(void)
 {
