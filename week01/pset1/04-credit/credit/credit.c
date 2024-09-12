@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
+// Declaração das funções
 long get_length(long number);
 long first_numbers(long number);
 void what_card(long number);
@@ -11,41 +12,46 @@ int main(void)
     long number;
     do
     {
-        number = get_long("Number: ");
+        number = get_long("Number: "); // Solicita o número do cartão ao usuário
     }
-    while (number < 0);
+    while (number < 0); // Verifica se o número é positivo
 
-    get_length(number);
-    first_numbers(number);
-    what_card(number);
-    get_sum(number);
+    get_length(number);   // Obtém a quantidade de dígitos do número
+    first_numbers(number); // Obtém os primeiros dígitos do número
+    what_card(number);    // Determina o tipo de cartão com base no número
+    get_sum(number);      // Calcula a soma para o algoritmo de Luhn
 }
 
+// Função para determinar o comprimento (número de dígitos) do cartão
 long get_length(long number)
 {
     int i = 0;
-    while (number > 0)
+    while (number > 0) // Conta quantos dígitos há no número
     {
-        number /= 10;
+        number /= 10; // Remove o último dígito
         i++;
     }
-    return i;
+    return i; // Retorna o comprimento
 }
 
+// Função para obter os primeiros dígitos do cartão
 long first_numbers(long number)
 {
     int i = 0;
-    while (number > 99)
+    while (number > 99) // Reduz o número até restarem apenas os dois primeiros dígitos
     {
-        number /= 10;
+        number /= 10; // Remove o último dígito
     }
-    return number;
+    return number; // Retorna os primeiros dígitos
 }
 
+// Função para identificar o tipo de cartão
 void what_card(long number)
 {
-    int length = get_length(number);
-    int firsts = first_numbers(number);
+    int length = get_length(number); // Obtém o comprimento do número do cartão
+    int firsts = first_numbers(number); // Obtém os dois primeiros dígitos
+
+    // Verifica o tipo de cartão com base no comprimento e nos primeiros dígitos
     if ((length == 15) && (firsts >= 34 && firsts <= 37))
     {
         printf("AMEX\n");
@@ -60,38 +66,39 @@ void what_card(long number)
     }
     else
     {
-        printf("INVALID\n");
+        printf("INVALID\n"); // Caso nenhum tipo de cartão seja identificado
     }
 }
 
+// Função para calcular a soma dos dígitos usando o algoritmo de Luhn
 void get_sum(long number)
 {
-    long sum = 0;
-    bool troca = false;
+    long sum = 0; // Inicializa a soma
+    bool troca = false; // Flag para alternar a multiplicação
+
     while (number > 0)
     {
-        long digit = number % 10; // armazena o último dígito de number
+        long digit = number % 10; // Armazena o último dígito de number
         // Ex: se number for 1234, então 1234 % 10 resulta em 4
-        number /= 10; // remove o último dígito encontrado
-        // Ex: se number for 1234, então 1234 / 10 resulta em 123.
+        number /= 10; // Remove o último dígito encontrado
+        // Ex: se number for 1234, então 1234 / 10 resulta em 123
 
-        if (troca)
+        if (troca) // Verifica se o dígito deve ser multiplicado
         {
-            digit *= 2;
-            if (digit >= 10) // Se o número conter 2 casas decimais...
+            digit *= 2; // Multiplica o dígito por 2
+            if (digit >= 10) // Se o número contiver 2 casas decimais...
             {
-                digit =
-                    (digit % 10) +
-                    (digit / 10); // soma o último e o primeiro dígito do número, respectivamente
+                // Se o resultado for maior que 9, soma os dígitos individuais
+                digit = (digit % 10) + (digit / 10);
+                // Ex: se digit for 14, 14 % 10 resulta em 4 (último)
+                // e 14 / 10 resulta em 1 (primeiro)
+                // Esta verificação é apenas para números de duas casas decimais,
+                // pois o maior número possível é 18 (9 * 2)
             }
-            // se digit for 14, 14 % 10 resulta em 4 (último)
-            // se digit for 14, 14 / 10 resulta em 1 (em divisão inteira) (primeiro)
-            // verificação apenas para duas casas decimais, pois o maior número que pode ser
-            // encontrado é 18 (9 * 2)
         }
-        sum += digit;
-        troca = !troca;
+        sum += digit; // Adiciona o dígito (ou a soma dos dígitos) à soma total
+        troca = !troca; // Alterna a flag para o próximo dígito
     }
 
-    printf("Sum = %li\n", sum);
+    printf("Sum = %li\n", sum); // Imprime o resultado da soma
 }
