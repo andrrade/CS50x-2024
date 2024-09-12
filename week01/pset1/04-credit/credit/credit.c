@@ -3,7 +3,7 @@
 
 // Declaração das funções
 long get_length(long number);
-int first_numbers(long number); // Alterado para int
+long first_numbers(long number);
 void what_card(long number);
 bool get_sum(long number);
 
@@ -15,6 +15,11 @@ int main(void)
         number = get_long("Number: "); // Solicita o número do cartão ao usuário
     }
     while (number < 0); // Verifica se o número é positivo
+
+    get_length(number);    // Obtém a quantidade de dígitos do número
+    first_numbers(number); // Obtém os primeiros dígitos do número
+
+    get_sum(number); // Calcula a soma para o algoritmo de Luhn
 
     if (get_sum(number)) // Verifica se o número é válido pelo algoritmo de Luhn
     {
@@ -39,13 +44,14 @@ long get_length(long number)
 }
 
 // Função para obter os primeiros dígitos do cartão
-int first_numbers(long number) // Alterado para int
+long first_numbers(long number)
 {
-    while (number >= 100) // Reduz o número até restarem apenas os dois primeiros dígitos
+    int i = 0;
+    while (number > 99) // Reduz o número até restarem apenas os dois primeiros dígitos
     {
         number /= 10; // Remove o último dígito
     }
-    return (int)number; // Retorna os primeiros dígitos
+    return number; // Retorna os primeiros dígitos
 }
 
 // Função para identificar o tipo de cartão
@@ -104,5 +110,6 @@ bool get_sum(long number)
         troca = !troca; // Alterna a flag para o próximo dígito
     }
 
-    return (sum % 10 == 0); // Retorna true se a soma total for divisível por 10, caso contrário, false.
+    return (sum % 10 ==
+            0); // Retorna true se a soma total for divisível por 10, caso contrário, false.
 }
