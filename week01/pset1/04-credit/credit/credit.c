@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 long length(long card);
-void first_numbers(long all_numbers);
+long first_numbers(long all_numbers);
+void what_card(long card_number);
 
 int main(void){
     long number;
@@ -14,6 +15,7 @@ int main(void){
 
     length(number);
     first_numbers(number);
+    what_card(number);
 }
 
 long length(long card)
@@ -27,13 +29,20 @@ long length(long card)
     return i;
 }
 
-void first_numbers(long all_numbers)
+long first_numbers(long all_numbers)
 {
     int i = 0;
     while (all_numbers > 99)
     {
         all_numbers /= 10;
     }
-    printf("%li\n", all_numbers);
+    return all_numbers;
 }
 
+void what_card(long card_number)
+{
+    long 
+    if(card_number == 1){
+
+    }
+}
