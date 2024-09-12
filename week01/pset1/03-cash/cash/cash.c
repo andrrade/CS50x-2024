@@ -13,13 +13,13 @@ int main(void)
     while(change < 0);
 
     int quarters = how_much(change, 25);
-    change -= quarters;
+    change -= quarters * 25;
     int dimes = how_much(change, 10);
-    change -= dimes;
+    change -= dimes * 10;
     int nickles = how_much(change, 5);
-    change -= nickles;
+    change -= nickles * 5;
     int pennies = how_much(change, 1);
-    change -= pennies;
+    change -= pennies * 1;
 
     int total_coins = quarters + dimes + nickles + pennies;
     printf("%i\n", total_coins);
