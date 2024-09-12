@@ -86,9 +86,9 @@ void get_sum(long number)
         if (troca) // Verifica se o dígito deve ser multiplicado
         {
             digit *= 2; // Multiplica o dígito por 2
-            if (digit >= 10) // Se o número contiver 2 casas decimais...
+            if (digit >= 10)
             {
-                // Se o resultado for maior que 9, soma os dígitos individuais
+                // Se o número contiver 2 casas decimais, acontece a soma entre os dígitos individuais
                 digit = (digit % 10) + (digit / 10);
                 // Ex: se digit for 14, 14 % 10 resulta em 4 (último)
                 // e 14 / 10 resulta em 1 (primeiro)
