@@ -5,7 +5,8 @@ long get_length(long card);
 long first_numbers(long all_numbers);
 void what_card(long card_number);
 
-int main(void){
+int main(void)
+{
     long number;
     do
     {
@@ -55,7 +56,8 @@ void what_card(long card_number)
     {
         printf("VISA\n");
     }
-    else{
+    else
+    {
         printf("INVALID\n");
     }
 }
