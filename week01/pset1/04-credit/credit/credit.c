@@ -16,17 +16,18 @@ int main(void)
     }
     while (number < 0); // Verifica se o número é positivo
 
-    get_length(number);   // Obtém a quantidade de dígitos do número
+    get_length(number);    // Obtém a quantidade de dígitos do número
     first_numbers(number); // Obtém os primeiros dígitos do número
 
-    get_sum(number);      // Calcula a soma para o algoritmo de Luhn
+    get_sum(number); // Calcula a soma para o algoritmo de Luhn
 
-    if(get_sum(number)){
-        what_card(number);    // Determina o tipo de cartão com base no número
+    if (get_sum(number)) // Verifica se o número é válido pelo algoritmo de Luhn
+    {
+        what_card(number); // Determina o tipo de cartão com base no número
     }
     else
     {
-        prinf("INVALID");
+        printf("INVALID\n"); // Imprime "INVALID" se o número for inválido
     }
 }
 
@@ -56,7 +57,7 @@ long first_numbers(long number)
 // Função para identificar o tipo de cartão
 void what_card(long number)
 {
-    int length = get_length(number); // Obtém o comprimento do número do cartão
+    int length = get_length(number);    // Obtém o comprimento do número do cartão
     int firsts = first_numbers(number); // Obtém os dois primeiros dígitos
 
     // Verifica o tipo de cartão com base no comprimento e nos primeiros dígitos
@@ -81,7 +82,7 @@ void what_card(long number)
 // Função para calcular a soma dos dígitos usando o algoritmo de Luhn
 bool get_sum(long number)
 {
-    long sum = 0; // Inicializa a soma
+    long sum = 0;       // Inicializa a soma
     bool troca = false; // Flag para alternar a multiplicação
 
     while (number > 0)
@@ -96,7 +97,8 @@ bool get_sum(long number)
             digit *= 2; // Multiplica o dígito por 2
             if (digit >= 10)
             {
-                // Se o número contiver 2 casas decimais, acontece a soma entre os dígitos individuais
+                // Se o número contiver 2 casas decimais, realiza a soma entre os dígitos
+                // individuais
                 digit = (digit % 10) + (digit / 10);
                 // Ex: se digit for 14, 14 % 10 resulta em 4 (último)
                 // e 14 / 10 resulta em 1 (primeiro)
@@ -104,9 +106,10 @@ bool get_sum(long number)
                 // pois o maior número possível é 18 (9 * 2)
             }
         }
-        sum += digit; // Adiciona o dígito (ou a soma dos dígitos) à soma total
+        sum += digit;   // Adiciona o dígito (ou a soma dos dígitos) à soma total
         troca = !troca; // Alterna a flag para o próximo dígito
     }
 
-    return (sum % 10 == 0); // Return true if the total sum modulo 10 is 0 (valid), otherwise false (invalid)
+    return (sum % 10 ==
+            0); // Retorna true se a soma total for divisível por 10, caso contrário, false.
 }
