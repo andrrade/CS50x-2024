@@ -7,7 +7,7 @@ int main(void)
 
   int n = 0;
 
-  while(name[n] != '/0')
+  while(name[n] != '\0')
   {
     n++;
   }
