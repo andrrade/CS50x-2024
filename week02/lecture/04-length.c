@@ -1,15 +1,16 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int length_string(string s);
+int string_length(string s);
 
 int main(void)
 {
   string name = get_string("Name: ");
-  length_string(name);
+  int length = string_length(name);
+  printf("%i\n", length);
 }
 
-int length_string(string s)
+int string_length(string s)
 {
   int n = 0;
 
