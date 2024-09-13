@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 // Constant
-const int N; // Variável global
+const int N = 3; // Variável global
 
 // Prototype
 float average(int length, int array[]);
