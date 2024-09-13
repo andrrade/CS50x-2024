@@ -1,4 +1,5 @@
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -11,7 +12,7 @@ int main(void)
   {
     if (s[i] >= 'a' && s[i] <= 'z')
     {
-      printf("%c", s[i] - 32);
+      printf("%c", toupper(s[i]));
     }
     else
     {
