@@ -3,7 +3,7 @@
 
 int main(void)
 {
-  int size = 8;
+  int size = get_int("Enter a size: ");
   int sequence[size];
 
   sequence[0] = 1;
