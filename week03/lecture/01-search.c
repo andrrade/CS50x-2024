@@ -15,5 +15,5 @@ int main(void)
         }
     }
     printf("Not found :(\n");
-    return 1; 
+    return 1; // failure
 }
