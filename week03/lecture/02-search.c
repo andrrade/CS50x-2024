@@ -10,9 +10,10 @@ int main(void)
     {
         if(strings[i] == s)
         {
-            printf("Found\n");
+            printf("Found :)\n");
             return 0;
         }
     }
+    printf("Not found :()")
     return 1;
 }
