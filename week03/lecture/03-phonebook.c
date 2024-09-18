@@ -14,8 +14,8 @@ int main(void)
         if (strcmp(names[i], name) == 0)
         {
             printf("Found %s\n", numbers[i]);
+            return 0;
         }
-        return 0;
     }
     printf("Not found :(\n");
     return 1;
