@@ -11,6 +11,11 @@ int main(void)
 
 void draw(int n)
 {
+    // If nothing to draw 
+    if (n <= 0)
+    {
+        return;
+    }
     // Print pyramide for height n - 1
     draw(n - 1);
 
