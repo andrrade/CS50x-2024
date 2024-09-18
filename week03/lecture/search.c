@@ -12,9 +12,6 @@ int main(void)
         {
             printf("Found :)\n");
         }
-        else
-        {
-            printf("Not found :(\n");
-        }
     }
+    printf("Not found :(\n");
 }
