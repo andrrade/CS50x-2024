@@ -1,5 +1,5 @@
-#include <ctype.h>
 #include <cs50.h>
+#include <ctype.h>
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
@@ -14,7 +14,7 @@ int main(void)
     int words = count(2, text);
     int sentences = count(3, text);
     int grade = Liau(letters, words, sentences);
-    // Exibe a nota adequada
+
     if (grade < 1)
     {
         printf("Before Grade 1\n");
@@ -34,33 +34,33 @@ int count(int type, string text)
     int counter = 0;
     for (int i = 0, length = strlen(text); i < length; i++)
     {
-        if (type == 1 && isalpha(text[i]))  // Count letters
+        if (type == 1 && isalpha(text[i])) // Count letters
         {
             counter++;
         }
-        else if (type == 2 && isspace(text[i - 1]))  // Count words
+        else if (type == 2 && isspace(text[i - 1])) // Count words
         {
             counter++;
         }
-        else if (type == 3 && (text[i] == '.' || text[i] == '!' || text[i] == '?'))  // Count sentences
+        else if (type == 3 &&
+                 (text[i] == '.' || text[i] == '!' || text[i] == '?')) // Count sentences
         {
             counter++;
         }
     }
     if (type == 2)
     {
-        counter++;  // Adiciona 1 para representar a última palavra
+        counter++; // Plus 1 to last word
     }
     return counter;
 }
 
 int Liau(int letters, int words, int sentences)
 {
-    float L = ((float)letters/words) * 100;
-    float S = ((float)sentences/words) * 100;
+    float L = ((float) letters / words) * 100;
+    float S = ((float) sentences / words) * 100;
     float index = 0.0588 * L - 0.296 * S - 15.8;
     index = round(index);
 
     return index;
 }
-
