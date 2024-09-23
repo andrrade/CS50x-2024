@@ -7,8 +7,16 @@
 int main(int argc, int argv[])
 {
     if (argc != 2){
-        printf("Usage: ./caesar key")
+        printf("Usage: ./caesar key\n")
     }
 
-    if (argv[1] )
+    key = argv[1];
+
+    for (int i = 0; i < strlen(key); i++)
+    {
+        if(!isdigit(key[i]))
+        {
+            printf("Usage: ./caesar key\n");
+        }
+    }
 }
