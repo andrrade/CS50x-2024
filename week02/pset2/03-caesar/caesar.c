@@ -28,14 +28,10 @@ int main(int argc, int argv[])
     {
         if(isalpha(text[i]))
         {
-            if(isupper(text[i]))
-            {
-               cipher[i] = (text[i] + key) % 26
-            }
-            if(islower(text[i]))
-            {
-                'a' + key;
-            }
+            // formula = Ci = (Pi + key) % 26
+            // convert ascii para index alfabeticos
+            // shift alphabetic index usando a formula
+            // converter o resultado para index
         }
     }
 }
