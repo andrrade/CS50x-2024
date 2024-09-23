@@ -23,4 +23,19 @@ int main(int argc, int argv[])
     key = atoi(key);
 
     string text = get_string();
+
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if(isalpha)
+        {
+            if(isupper)
+            {
+                
+            }
+            if(islower)
+            {
+
+            }
+        }
+    }
 }
