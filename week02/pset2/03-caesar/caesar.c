@@ -10,20 +10,21 @@ int main(int argc, int argv[])
         printf("Usage: ./caesar key\n")
     }
 
-    key = argv[1];
+    string key = argv[1];
 
     for (int i = 0; i < strlen(key); i++)
     {
         if(!isdigit(key[i]))
         {
             printf("Usage: ./caesar key\n");
+            return 1;
         }
     }
 
-    key = atoi(key);
+    int key_num = atoi(key);
 
-    string text = get_string();
-    string cipher;
+    string text = get_string("Plaintext: ");
+
     for (int i = 0; i < strlen(text); i++)
     {
         if(isalpha(text[i]))
