@@ -5,6 +5,7 @@
 #include <string.h>
 
 int count(int type, string text);
+int Liau(int letters, int words, int sentences);
 
 int main(void)
 {
@@ -12,6 +13,7 @@ int main(void)
     int letters = count(1, text);
     int words = count(2, text);
     int sentences = count(3, text);
+    printf("Grade %d\n", Liau(letters, words, sentences));
 }
 
 int count(int type, string text)
@@ -39,5 +41,21 @@ int count(int type, string text)
     return counter;
 }
 
+int Liau(int letters, int words, int sentences)
+{
+    float L = ((float)letters/words) * 100;
+    float S = ((float)letters/sentences) * 100;
+    float index = 0.0588 * L - 0.296 * S - 15.8;
+    index = round(index);
 
+    if(index < 1)
+    {
+        printf("Before Grade 1");
+    }
+    if(index > 16)
+    {
+        printf("Grade 16+");
+    }
+    return index;
+}
 
