@@ -23,14 +23,14 @@ int main(int argc, int argv[])
     key = atoi(key);
 
     string text = get_string();
-    
+    string cipher;
     for (int i = 0; i < strlen(text); i++)
     {
         if(isalpha(text[i]))
         {
             if(isupper(text[i]))
             {
-                return 'A' + key;
+               cipher[i] = (text[i] + key) % 26
             }
             if(islower(text[i]))
             {
