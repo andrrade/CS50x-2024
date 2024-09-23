@@ -26,13 +26,13 @@ int main(int argc, int argv[])
 
     for (int i = 0; i < strlen(text); i++)
     {
-        if(isalpha)
+        if(isalpha(text[i]))
         {
-            if(isupper)
+            if(isupper(text[i]))
             {
                 'A' + key;
             }
-            if(islower)
+            if(islower(text[i]))
             {
                 'a' + key;
             }
