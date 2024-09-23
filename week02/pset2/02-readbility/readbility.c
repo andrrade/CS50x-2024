@@ -39,3 +39,5 @@ int count(int type, string text)
     return counter;
 }
 
+
+
