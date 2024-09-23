@@ -4,47 +4,34 @@
 #include <stdio.h>
 #include <string.h>
 
-int count(int type, string text, int length);
+int count(int type, string text);
 
 int main(void)
 {
     string text = get_string("Text: ");
-    int length = strlen(text, length);
-    int letters = count_letters(text, length);
-    int words = count_words(text, length);
-    int sentences = count_sentences(text, length);
+    int letters = count(1, text);
+    int words = count(2, text);
+    int sentences = count(3, text);
 }
 
-int count_letters(string text, int length)
+int count(int type, string text)
 {
-    int letters = 0;
-    for (int i = 0; i < length; i++)
+    int counter = 0;
+    for (int i = 0, length = strlen(text); i < length; i++)
     {
-        if(isalpha(text[i]))
+        if (type == 1 && isalpha(text[i]))  // Count letters
         {
-            letters++;
+            counter++;
         }
-
-    }
-    return letters;
+        else if (type == 2 && (i == 0 || isspace(text[i - 1])))  // Count words
+        {
+            counter++;
+        }
+        else if (type == 3 && (text[i] == '.' || text[i] == '!' || text[i] == '?'))  // Count sentences
+        {
+            counter++;
+        }
+        }
+    return counter;
 }
 
-int count_words(string text, int length)
-{
-    int words = 0;
-     if(isspace(text[i]))
-        {
-            words++;
-        }
-    return words++;
-}
-
-int count_sentences(string text, int length)
-{
-    int sentences = 0;
-     if(text[i] == "." || text[i] == "!" || text[i] == "?")
-        {
-            sentences++;
-        }
-        return sentences;
-}
