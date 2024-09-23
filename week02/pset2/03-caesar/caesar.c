@@ -19,4 +19,8 @@ int main(int argc, int argv[])
             printf("Usage: ./caesar key\n");
         }
     }
+
+    key = atoi(key);
+
+    string text = get_string();
 }
