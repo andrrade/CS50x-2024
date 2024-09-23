@@ -23,7 +23,7 @@ int count(int type, string text)
         {
             counter++;
         }
-        else if (type == 2 && (i == 0 || isspace(text[i - 1])))  // Count words
+        else if (type == 2 && isspace(text[i - 1]))  // Count words
         {
             counter++;
         }
@@ -31,7 +31,11 @@ int count(int type, string text)
         {
             counter++;
         }
-        }
+    }
+    if (type == 2)
+    {
+        counter++;  // Adiciona 1 para representar a última palavra
+    }
     return counter;
 }
 
