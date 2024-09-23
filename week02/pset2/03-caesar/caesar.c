@@ -30,11 +30,11 @@ int main(int argc, int argv[])
         {
             if(isupper)
             {
-                
+                'A' + key;
             }
             if(islower)
             {
-
+                'a' + key;
             }
         }
     }
