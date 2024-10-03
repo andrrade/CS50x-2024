@@ -20,4 +20,13 @@ int main(void)
 
     candidates[2].name = "Inno";
     candidates[2].votes = 7;
+
+    int highest_votes = 0;
+    for (int i = 0; i < num_candidates; i++)
+    {
+        if(candidates[i].votes > highest_votes)
+        {
+            highest_votes = candidates[i].votes;
+        }
+    }
 }
