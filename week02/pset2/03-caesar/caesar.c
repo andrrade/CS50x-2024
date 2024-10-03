@@ -29,10 +29,17 @@ int main(int argc, int argv[])
     {
         if(isalpha(text[i]))
         {
+            if(isupper(text[i])) {
+                
+            }
+            else {
+
+            }
             // formula = Ci = (Pi + key) % 26
             // convert ascii para index alfabeticos
             // shift alphabetic index usando a formula
             // converter o resultado para index
         }
     }
+
 }
