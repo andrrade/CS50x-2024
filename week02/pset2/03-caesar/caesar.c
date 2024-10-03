@@ -11,7 +11,9 @@ int main(int argc, int argv[]) // Mantendo conforme solicitado
         return 1;
     }
 
-    
+    // Convertendo o valor de argv[1] para string
+    string key = (char *) argv[1]; // É necessário forçar a conversão para string.
+
     // Verificando se todos os caracteres da key são dígitos
     for (int i = 0; i < strlen(key); i++) {
         if (!isdigit(key[i])) {
