@@ -36,10 +36,6 @@ int main(int argc, int argv[])
             else {
                 cypher += cypher;
             }
-            // formula = Ci = (Pi + key) % 26
-            // convert ascii para index alfabeticos
-            // shift alphabetic index usando a formula
-            // converter o resultado para index
         }
     }
 
