@@ -29,11 +29,12 @@ int main(int argc, int argv[])
     {
         if(isalpha(text[i]))
         {
+            string cypher = (text[i] + key_num) % 26;
             if(isupper(text[i])) {
-                
+                cypher += cypher;
             }
             else {
-
+                cypher += cypher;
             }
             // formula = Ci = (Pi + key) % 26
             // convert ascii para index alfabeticos
