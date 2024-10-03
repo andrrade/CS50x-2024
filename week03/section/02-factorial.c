@@ -14,3 +14,14 @@ int main(void)
 
     printf("%i\n", factorial(n));
 }
+
+int factorial(int n)
+{
+    // base case
+    if (n == 1)
+    {
+        return 1;
+    }
+
+    return n * factorial (n - 1);
+}
