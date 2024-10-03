@@ -6,12 +6,14 @@
 
 int main(int argc, string argv[])
 {
+    // Verifica se o número correto de argumentos foi passado
     if (argc != 2) {
         printf("Usage: ./caesar key\n");
         return 1;
     }
 
-    // Verificando se todos os caracteres da key são dígitos
+    // Verifica se a key contém apenas dígitos
+    string key = argv[1];
     for (int i = 0; i < strlen(key); i++) {
         if (!isdigit(key[i])) {
             printf("Usage: ./caesar key\n");
@@ -19,15 +21,15 @@ int main(int argc, string argv[])
         }
     }
 
-    // Convertendo a key para número
+    // Converte a key de string para número
     int key_num = atoi(key);
 
-    // Solicitando o texto do usuário
+    // Solicita o texto a ser criptografado
     string text = get_string("Plaintext: ");
 
     printf("Ciphertext: ");
 
-    // Criptografando o texto
+    // Criptografa o texto
     for (int i = 0; i < strlen(text); i++) {
         if (isalpha(text[i])) {
             // Para letras maiúsculas
@@ -48,3 +50,4 @@ int main(int argc, string argv[])
     printf("\n");
     return 0;
 }
+
