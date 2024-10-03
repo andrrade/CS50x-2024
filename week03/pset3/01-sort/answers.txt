@@ -1,11 +1,17 @@
 sort1 uses: Bubble Sort
 
 How do you know?: Reversed = 5,205; Sorted = 0,736s; Random: 5,887s.
-Bubble Sort = O() 
+Bubble Sort has a time complexity of O(n²) and Ω(n).
+It was the fastest in the best case and the slowest in the worst case.
+
 sort2 uses: Merge Sort
 
 How do you know?: Reversed = 0,815s; Sorted = 0,822s; Random: 0,779s.
+Merge Sort has a time complexity of O(n log n) and Ω(n log n).
+In all cases, it was very quick.
 
 sort3 uses: Selection Sort
 
 How do you know?: Reversed = 2,847; Sorted = 2,704; Random: 2,525s;
+Selection Sort has a time complexity of O(n²) and Ω(n²).
+In all cases, it was slower.
