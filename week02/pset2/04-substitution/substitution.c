@@ -26,7 +26,7 @@ int main(int argc, string argv[])
     // Solicita o texto a ser criptografado
     string text = get_string("Plaintext: ");
 
-    printf("Ciphertext: ");
+    printf("ciphertext: ");
 
     // Criptografa o texto
     for (int i = 0; i < strlen(text); i++)
