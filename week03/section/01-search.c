@@ -22,11 +22,14 @@ int main(void)
     candidates[2].votes = 7;
 
     int highest_votes = 0;
+    string name = "";
     for (int i = 0; i < num_candidates; i++)
     {
         if(candidates[i].votes > highest_votes)
         {
             highest_votes = candidates[i].votes;
+            name = candidates[i].name;
         }
     }
+    printf("%s: %i\n", name, highest_votes);
 }
