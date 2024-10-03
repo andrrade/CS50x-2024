@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Bubble Sort
 
-How do you know?: TODO
+How do you know?: Reversed = 5,205; Sorted = 0,736s; Random: 5,887s.
+Bubble Sort = O() 
+sort2 uses: Merge Sort
 
-sort2 uses: TODO
+How do you know?: Reversed = 0,815s; Sorted = 0,822s; Random: 0,779s.
 
-How do you know?: TODO
+sort3 uses: Selection Sort
 
-sort3 uses: TODO
-
-How do you know?: TODO
+How do you know?: Reversed = 2,847; Sorted = 2,704; Random: 2,525s;
