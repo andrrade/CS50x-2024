@@ -76,7 +76,6 @@ bool vote(string name)
     return false;
 }
 
-
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
