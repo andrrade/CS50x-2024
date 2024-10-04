@@ -8,8 +8,13 @@ int main(void)
 {
     char *s = get_string("s: ");
 
-    char *t = malloc(strlen(s));
+    char *t = malloc(strlen(s) + 1);
     // malloc = memory allocate
+
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        t[i] = s[i];
+    }
 
     if (strlen(t) > 0)
     {
