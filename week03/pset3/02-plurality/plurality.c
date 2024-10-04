@@ -65,10 +65,10 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    for (int i = 0; i < MAX; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if name == candidate[i].name;
-        candidate[i].votes++;
+        if name == candidates[i].name;
+        candidates[i].votes++;
         return true
     }
     return false;
@@ -78,14 +78,20 @@ bool vote(string name)
 void print_winner(void)
 {
     int heighest = 0;
-    string winner = "";
-    for (int i = 0; i < MAX; i++)
+
+    for (int i = 0; i < candidate_count; i++)
     {
-        if (candidate[i].votes >= heighest)
+        if (candidates[i].votes > heighest)
         {
-            winner == candidate[i].name;
-            heighest == candidate[i].votes;
+            heighest == candidates[i].votes;
         }
     }
-    return;
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == highest)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
 }
