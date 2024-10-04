@@ -7,7 +7,7 @@
 int main(void)
 {
     char *s = get_string("s: ");
-    if (s == NULL) 
+    if (s == NULL)
     {
         return 1;
     }
@@ -28,4 +28,7 @@ int main(void)
 
     printf("%s\n", s);
     printf("%s\n", t);
+
+    free(t);
+    return 0;
 }
