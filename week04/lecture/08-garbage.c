@@ -3,8 +3,8 @@
 int main(void)
 {
     int score[1024];
-    for (i = 0; i < 1024; i++)
+    for (int i = 0; i < 1024; i++)
     {
-        
+        printf("%i\n", score[i]);
     }
 }
