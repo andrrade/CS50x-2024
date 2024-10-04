@@ -11,7 +11,7 @@ int main(void)
     char *t = malloc(strlen(s) + 1);
     // malloc = memory allocate
 
-    for (int i = 0, n = strlen(s); i < n; i++)
+    for (int i = 0, n = strlen(s); i <= n; i++)
     {
         t[i] = s[i];
     }
