@@ -67,9 +67,11 @@ bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if name == candidates[i].name;
-        candidates[i].votes++;
-        return true;
+        if (name == candidates[i].name)
+        {
+            candidates[i].votes++;
+            return true;
+        }
     }
     return false;
 }
@@ -83,7 +85,7 @@ void print_winner(void)
     {
         if (candidates[i].votes > heighest)
         {
-            heighest == candidates[i].votes;
+            heighest = candidates[i].votes;
         }
     }
 
