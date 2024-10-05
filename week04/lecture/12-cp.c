@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
     BYTE b;
 
-    while (fread(&b, sizeof(b), 1, src) != 0)
+    while (fread(&b, sizeof(b), 1, src) != 0) // b = pass by value; &b = pass by reference
     {
         fwrite(&b, sizeof(b), 1, dst);
     }
