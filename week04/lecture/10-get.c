@@ -9,8 +9,8 @@ int main(void)
     // printf("n: %i\n", n);
 
     // get_string
-    char *s; // char * is already an adress and don't need ampersand (&), like integers.
+    char s[4]; // char * is already an adress and don't need ampersand (&), like integers.
     printf("s: ");
     scanf("%s", s);
-    printf("s: %s\n", s)
+    printf("s: %s\n", s);
 }
