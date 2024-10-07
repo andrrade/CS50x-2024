@@ -9,7 +9,7 @@ int main(void)
     int b = 50;
 
     printf("a is %i, b is %i\n", a, b);
-    swap(&a, &b);
+    swap(&a, &b); // pass the adress of a, and the adress of b
     printf("a is %i, b is %i\n", a, b);
 }
 
