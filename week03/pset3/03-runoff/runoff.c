@@ -129,11 +129,15 @@ bool vote(int voter, int rank, string name)
     // TODO
     for (int i = 0; i < voter; i++)
     {
-        for (int j = 0. j < rank; j++)
+        for (int j = 0; j < rank; j++)
         {
-            if (name == candidates[i].name)
+            if (name != candidates[i].name)
             {
-
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
