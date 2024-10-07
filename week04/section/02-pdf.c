@@ -8,12 +8,13 @@
 //     string filename = argv[1];
 //     FILE *f = fopen(filename, "r");
 //     uint8_t buffer[4]; // right size of value to use
-//     fread(buffer, 1, 4, f);
+//     int blocks_read = fread(buffer, 1, 4, f);
 
 //     for (int i = 0; i < 4; i++)
 //     {
 //         printf("%i\n", buffer[i]);
 //     }
+//     printf("Blocks read: %i\n", blocks_read);
 //     fclose(f);
 // }
 
@@ -43,10 +44,10 @@ int main(int argc, string argv[])
 
     // Lê os primeiros 4 bytes do arquivo
     uint8_t buffer[4];
-    size_t bytes_read = fread(buffer, 1, 4, f);
+    int blocks_read = fread(buffer, 1, 4, f);
 
     // Verifica se foram lidos 4 bytes
-    if (bytes_read != 4)
+    if (blocks_read != 4)
     {
         printf("Erro ao ler o arquivo ou arquivo muito pequeno.\n");
         fclose(f);
@@ -69,6 +70,8 @@ int main(int argc, string argv[])
         printf("%i\n", buffer[i]);
     }
 
+    // Exibe a qtde de blocos/bytes lidos:
+    printf("Blocks read: %i\n", blocks_read);
     // Fecha o arquivo
     fclose(f);
 
