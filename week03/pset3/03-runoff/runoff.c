@@ -127,12 +127,16 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    for (int i = 0; i < voter_count; i++)
+    for (int i = 0; i < voter; i++)
     {
-        if (name == candidates[i].name)
+        for (int j = 0. j < rank; j++)
         {
-            
+            if (name == candidates[i].name)
+            {
+
+            }
         }
+
     }
     return false;
 }
