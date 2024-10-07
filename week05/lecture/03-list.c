@@ -45,18 +45,13 @@ int main(int argc, char *argv[])
             for (node *ptr = list; ptr != NULL; ptr = ptr->next)
             {
                 // If at end of list
-                if (ptr->next == )
+                if (ptr->next == NULL)
+                {
+                    // Append node
+                    ptr->next = n;
+                    break;
+                }
             }
         }
     }
-
-    // Print whole list
-    node *ptr = list;
-    while (ptr != NULL)
-    {
-        printf("%i\n", ptr->number);
-        ptr = ptr->next;
-    }
-    // O(1) - for insertion
-    // O(n) - for finding
 }
