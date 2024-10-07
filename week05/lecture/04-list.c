@@ -76,5 +76,4 @@ int main(int argc, char *argv[])
         ptr = ptr->next;
     }
     // O(n) - for insertion
-    // 
 }
