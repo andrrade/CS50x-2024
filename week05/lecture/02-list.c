@@ -33,4 +33,6 @@ int main(int argc, char *argv[])
         printf("%i\n", ptr->number);
         ptr = ptr->next;
     }
+    // O(1) - for insertion
+    // O(n) - for finding
 }
