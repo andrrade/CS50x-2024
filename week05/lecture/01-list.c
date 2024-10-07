@@ -14,7 +14,7 @@ int main(void)
     list[2] = 3;
 
     int *tmp = malloc(4 * sizeof(int));
-    if (temp == NULL)
+    if (tmp == NULL)
     {
         free(list); // good practice
         return 1;
@@ -26,10 +26,13 @@ int main(void)
     }
     tmp[3] = 4;
     free(list);
-    list = tmp;
+    list = tmp; // list now point to the new chunk of memory
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         printf("%i\n", list[i]);
     }
+
+    free(list);
+    return 0;
 }
