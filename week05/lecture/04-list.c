@@ -57,6 +57,13 @@ int main(int argc, char *argv[])
                     ptr->next = n;
                     break;
                 }
+                // If in middle of list
+                if (n->number < ptr->next->number)
+                {
+                    n->next = ptr->next;
+                    ptr->next = n;
+                    break;
+                }
             }
         }
 
