@@ -4,9 +4,10 @@
 
 int main(int argc, string argv[])
 {
+    // TODO: Check first four bytes in given file
     string filename = argv[1];
     FILE *f = fopen(filename, "r");
-    uint8_t buffer[4];
+    uint8_t buffer[4]; // right size of value to use
     fread(buffer, 1, 4, f);
 
     for (int i = 0; i < 4; i++)
