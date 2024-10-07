@@ -66,7 +66,6 @@ int main(int argc, char *argv[])
                 }
             }
         }
-
     }
 
     // Print whole list
@@ -77,4 +76,5 @@ int main(int argc, char *argv[])
         ptr = ptr->next;
     }
     // O(n) - for insertion
+    // 
 }
