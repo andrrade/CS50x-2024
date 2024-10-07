@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
         n->number = number;
         n->next = list;
         list = n;
-        printf("%i\n", number);
     }
 
     // Print whole list
