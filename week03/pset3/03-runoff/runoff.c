@@ -175,6 +175,7 @@ bool print_winner(void)
 int find_min(void)
 {
     int minimum;
+    string m_name = "";
     for (int i = 0; i < candidate_count; i++)
     {
         minimum += candidates.votes[i];
@@ -184,6 +185,7 @@ int find_min(void)
         if (candidates.votes[i] < minimum)
         {
             minimum = candidates.votes[i];
+            m_name = candidates.name[i];
         }
     }
     return 0;
@@ -199,6 +201,6 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    // TODO
+    if ()
     return;
 }
