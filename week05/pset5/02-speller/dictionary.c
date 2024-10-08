@@ -1,11 +1,11 @@
 // Implements a dictionary's functionality
 
-#include <stdbool.h>
-#include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <stdio.h>
 
 #include "dictionary.h"
 
@@ -14,8 +14,7 @@ typedef struct node
 {
     char word[LENGTH];
     struct node *next;
-}
-node;
+} node;
 
 // Number of buckets in hash table
 const unsigned int N = 26;
@@ -29,13 +28,13 @@ bool check(const char *word)
 {
     node *cursor = table[hash(word)];
 
-    //compare words case insensitive
+    // compare words case insensitive
     if (strcasecmp(cursor->word, word) == 0)
     {
         return true;
     }
 
-    //keep traversing linked list until it finds the word or it finishes
+    // keep traversing linked list until it finds the word or it finishes
     while (cursor->next != NULL)
     {
         cursor = cursor->next;
@@ -102,7 +101,8 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    // creates two pointers to traverse the linked list and cancel its element without losing its address
+    // creates two pointers to traverse the linked list and cancel its element without losing its
+    // address
     node *tmp;
     node *cursor;
 
