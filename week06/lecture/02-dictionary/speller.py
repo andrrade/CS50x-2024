@@ -48,12 +48,14 @@ def main():
             with open(text, 'r', encoding=enc) as file:
                 # Read all words at once and split by whitespace and non-alpha characters
                 words = re.findall(r"[a-zA-Z']+", file.read())
-                words_in_text = len(words)  # Count total valid words in the text
+                words_in_text = len(words)  # Contar total de palavras válidas no texto
 
                 for word in words:
+                    # Normalize word to lower case before checking
+                    normalized_word = word.lower()  # Normaliza para comparação
                     # Time the check function
                     start_check = time.time()
-                    if not check(word):
+                    if not check(normalized_word):
                         print(word)  # Print misspelled words
                         misspellings += 1
                     end_check = time.time()
