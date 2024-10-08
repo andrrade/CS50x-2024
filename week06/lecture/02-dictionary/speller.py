@@ -12,7 +12,6 @@ def load(dictionary):
     """Load the dictionary into memory from a file."""
     try:
         with open(dictionary, 'r', encoding='utf-8') as file:
-            # Read lines from the file and update the words set
             words.update(word.strip().lower() for word in file.readlines())
         return True
     except FileNotFoundError:
@@ -64,33 +63,41 @@ def main():
     misspellings = 0
     words_in_text = 0
 
-    try:
-        with open(text, 'r', encoding='utf-8') as file:
-            word = ''
-            while True:
-                c = file.read(1)
-                if not c:  # End of file
-                    break
+    # List of encodings to try
+    encodings = ['utf-8', 'ISO-8859-1', 'windows-1252']
 
-                if c.isalpha() or (c == "'" and word):  # Allow alphabetical characters and apostrophes
-                    word += c
-                else:
-                    if word:  # If a complete word is found
-                        words_in_text += 1
-                        if not check(word):
-                            print(word)
-                            misspellings += 1
-                        word = ''  # Reset word
+    for enc in encodings:
+        try:
+            with open(text, 'r', encoding=enc) as file:
+                word = ''
+                while True:
+                    c = file.read(1)
+                    if not c:  # End of file
+                        break
 
-                    if c.isdigit():  # Ignore words with numbers
-                        while c and c.isalnum():  # Consume alphanumeric string
-                            c = file.read(1)
-                        word = ''  # Reset word
+                    if c.isalpha() or (c == "'" and word):  # Allow alphabetical characters and apostrophes
+                        word += c
+                    else:
+                        if word:  # If a complete word is found
+                            words_in_text += 1
+                            if not check(word):
+                                print(word)
+                                misspellings += 1
+                            word = ''  # Reset word
 
-    except UnicodeDecodeError:
-        print(f"Error reading {text}. The file might not be in UTF-8 encoding.")
-        unload()
-        return 1
+                        if c.isdigit():  # Ignore words with numbers
+                            while c and c.isalnum():  # Consume alphanumeric string
+                                c = file.read(1)
+                            word = ''  # Reset word
+
+            break  # Exit the loop if read is successful
+
+        except UnicodeDecodeError:
+            print(f"Failed to read {text} with encoding {enc}. Trying next...")
+        except Exception as e:
+            print(f"An error occurred while reading {text}: {e}")
+            unload()
+            return 1
 
     # Determine dictionary's size
     dict_size = size()
