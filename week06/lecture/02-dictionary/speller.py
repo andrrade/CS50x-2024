@@ -47,12 +47,14 @@ def main():
             # Find all words in the text using regex
             words = re.findall(r"[a-zA-Z']+", content)  # Capture words with letters and apostrophes
             words_in_text = len(words)  # Count total words
+            print(f"Total words in text: {words_in_text}")  # Print total words for debugging
 
             for word in words:
+                print(f"Checking word: {word}")  # Print each word being checked
                 # Time the check function
                 start_check = time.time()
                 if not check(word):
-                    print(word)
+                    print(word)  # Print misspelled words
                     misspellings += 1
                 end_check = time.time()
                 total_time_check += (end_check - start_check)
