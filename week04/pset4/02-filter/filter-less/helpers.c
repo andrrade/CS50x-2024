@@ -1,72 +1,53 @@
 #include "helpers.h"
+#include <math.h>  // Para usar round()
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
-    // Loop through each row of pixels
     for (int i = 0; i < height; i++)
     {
-        // Loop through each pixel in the row
         for (int j = 0; j < width; j++)
         {
-            // Get the red, green, and blue values of the current pixel
+            // Obtenha os valores de vermelho, verde e azul
             int red = image[i][j].rgbtRed;
             int green = image[i][j].rgbtGreen;
             int blue = image[i][j].rgbtBlue;
 
-            // Calculate the average of the three colors
-            int average = (red + green + blue) / 3;
+            // Calcule a média e arredonde
+            int average = round((red + green + blue) / 3.0);
 
-            // Set each color to the average value
+            // Defina cada cor como o valor da média
             image[i][j].rgbtRed = average;
             image[i][j].rgbtGreen = average;
             image[i][j].rgbtBlue = average;
         }
     }
-    return;
 }
+
 
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
-    // Loop through each row of pixels
     for (int i = 0; i < height; i++)
     {
-        // Loop through each pixel in the row
         for (int j = 0; j < width; j++)
         {
-            // Get the original red, green, and blue values of the current pixel
+            // Obtenha as cores originais
             int originalRed = image[i][j].rgbtRed;
             int originalGreen = image[i][j].rgbtGreen;
             int originalBlue = image[i][j].rgbtBlue;
 
-            // Apply sepia formula
-            int sepiaRed = (int)(0.393 * originalRed + 0.769 * originalGreen + 0.189 * originalBlue);
-            int sepiaGreen = (int)(0.349 * originalRed + 0.686 * originalGreen + 0.168 * originalBlue);
-            int sepiaBlue = (int)(0.272 * originalRed + 0.534 * originalGreen + 0.131 * originalBlue);
+            // Aplique a fórmula sepia
+            int sepiaRed = round(0.393 * originalRed + 0.769 * originalGreen + 0.189 * originalBlue);
+            int sepiaGreen = round(0.349 * originalRed + 0.686 * originalGreen + 0.168 * originalBlue);
+            int sepiaBlue = round(0.272 * originalRed + 0.534 * originalGreen + 0.131 * originalBlue);
 
-            // Make sure the values don't exceed 255
-            if (sepiaRed > 255)
-            {
-                sepiaRed = 255;
-            }
-            if (sepiaGreen > 255)
-            {
-                sepiaGreen = 255;
-            }
-            if (sepiaBlue > 255)
-            {
-                sepiaBlue = 255;
-            }
-
-            // Set the pixel's new red, green, and blue values
-            image[i][j].rgbtRed = sepiaRed;
-            image[i][j].rgbtGreen = sepiaGreen;
-            image[i][j].rgbtBlue = sepiaBlue;
+            // Garanta que os valores não excedam 255
+            image[i][j].rgbtRed = sepiaRed > 255 ? 255 : sepiaRed;
+            image[i][j].rgbtGreen = sepiaGreen > 255 ? 255 : sepiaGreen;
+            image[i][j].rgbtBlue = sepiaBlue > 255 ? 255 : sepiaBlue;
         }
     }
-
-    return;
 }
 
 // Reflect image horizontally
@@ -91,10 +72,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    // Create a temporary copy of the image to store the original values
     RGBTRIPLE temp[height][width];
 
-    // Copy the original image into temp
+    // Copiar a imagem original para temp
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -103,7 +83,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    // Loop through each pixel in the image
+    // Aplicar o blur
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -113,7 +93,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int blueSum = 0;
             int counter = 0;
 
-            // Loop through the neighboring pixels in a 3x3 box
+            // Percorrer os pixels vizinhos em um quadrado 3x3
             for (int di = -1; di <= 1; di++)
             {
                 for (int dj = -1; dj <= 1; dj++)
@@ -121,7 +101,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     int ni = i + di;
                     int nj = j + dj;
 
-                    // Check if neighboring pixel is within image bounds
+                    // Verificar se o pixel está dentro dos limites
                     if (ni >= 0 && ni < height && nj >= 0 && nj < width)
                     {
                         redSum += temp[ni][nj].rgbtRed;
@@ -132,13 +112,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            // Calculate the average color values
-            image[i][j].rgbtRed = redSum / counter;
-            image[i][j].rgbtGreen = greenSum / counter;
-            image[i][j].rgbtBlue = blueSum / counter;
+            // Calcular a média e arredondar
+            image[i][j].rgbtRed = round(redSum / (float)counter);
+            image[i][j].rgbtGreen = round(greenSum / (float)counter);
+            image[i][j].rgbtBlue = round(blueSum / (float)counter);
         }
     }
-
-    return;
 }
-
