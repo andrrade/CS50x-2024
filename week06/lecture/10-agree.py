@@ -1,4 +1,6 @@
-s = input("Do you agree? [S/N]: ")
+s = input("Do you agree? [y/n]: ")
+
+s = s.lower()
 
 # if (s == "Y") or (s == "y"):
 #     print("Yes :)")
@@ -6,6 +8,7 @@ s = input("Do you agree? [S/N]: ")
 #     print("No :(")
 # else:
 #     print("Invalid Option :|")
+
 if s in ["y", "yes"]:
     print("Yes :)")
 elif n in ["n", "no"]:
