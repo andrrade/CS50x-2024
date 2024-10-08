@@ -11,7 +11,7 @@ words = set()
 def load(dictionary):
     """Load the dictionary into memory from a file."""
     try:
-        with open(dictionary, 'r') as file:
+        with open(dictionary, 'r', encoding='utf-8') as file:
             # Read lines from the file and update the words set
             words.update(word.strip().lower() for word in file.readlines())
         return True
@@ -64,31 +64,31 @@ def main():
     misspellings = 0
     words_in_text = 0
 
-    with open(text, 'r') as file:
-        word = ''
-        while True:
-            c = file.read(1)
-            if not c:  # End of file
-                break
+    try:
+        with open(text, 'r', encoding='utf-8') as file:
+            word = ''
+            while True:
+                c = file.read(1)
+                if not c:  # End of file
+                    break
 
-            if c.isalpha() or (c == "'" and word):  # Allow alphabetical characters and apostrophes
-                word += c
-            else:
-                if word:  # If a complete word is found
-                    words_in_text += 1
-                    if not check(word):
-                        print(word)
-                        misspellings += 1
-                    word = ''  # Reset word
+                if c.isalpha() or (c == "'" and word):  # Allow alphabetical characters and apostrophes
+                    word += c
+                else:
+                    if word:  # If a complete word is found
+                        words_in_text += 1
+                        if not check(word):
+                            print(word)
+                            misspellings += 1
+                        word = ''  # Reset word
 
-                if c.isdigit():  # Ignore words with numbers
-                    while c and c.isalnum():  # Consume alphanumeric string
-                        c = file.read(1)
-                    word = ''  # Reset word
+                    if c.isdigit():  # Ignore words with numbers
+                        while c and c.isalnum():  # Consume alphanumeric string
+                            c = file.read(1)
+                        word = ''  # Reset word
 
-    # Check whether there was an error
-    if file.closed:
-        print(f"Error reading {text}.")
+    except UnicodeDecodeError:
+        print(f"Error reading {text}. The file might not be in UTF-8 encoding.")
         unload()
         return 1
 
