@@ -1,3 +1,4 @@
 from PIL import Image, ImageFilter
 
-before = Image.open("bridge.bmp")
+before = Image.open("yard.bmp")
+
