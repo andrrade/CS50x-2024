@@ -11,7 +11,7 @@ s = s.lower() # oop
 
 if s in ["y", "yes"]:
     print("Yes :)")
-elif n in ["n", "no"]:
+elif s in ["n", "no"]:
     print("No :(")
 else:
     print("Invalid :|")
