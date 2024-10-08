@@ -82,6 +82,6 @@ def main(dictionary_file, text_file):
     print(f"TIME IN CHECK: {time_check:.2f} seconds")
 
 if __name__ == "__main__":
-    DICTIONARY = "dictionaries/large.txt"  # Substitua pelo caminho correto
-    TEXT = "texts/holmes.txt"  # Substitua pelo caminho correto
+    DICTIONARY = "week06/lecture/02-dictionary/dictionaries/large.txt"  # Substitua pelo caminho correto
+    TEXT = "week06/lecture/02-dictionary/texts/holmes.txt"  # Substitua pelo caminho correto
     main(DICTIONARY, TEXT)
