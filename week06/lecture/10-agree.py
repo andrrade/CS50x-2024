@@ -1,6 +1,6 @@
-s = input("Do you agree? [y/n]: ")
+s = input("Do you agree? [y/n]: ").lower()
 
-s = s.lower() # oop
+# s = s.lower() # oop
 
 # if (s == "Y") or (s == "y"):
 #     print("Yes :)")
