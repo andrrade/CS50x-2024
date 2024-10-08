@@ -5,5 +5,6 @@ int main(void)
 {
     int x = get_int("X: ");
     int y = get_int("Y: ");
-    printf("&i + &i = &i\n", x, y, x + y);
+    printf("%d + %d = %d\n", x, y, x + y);
+
 }
