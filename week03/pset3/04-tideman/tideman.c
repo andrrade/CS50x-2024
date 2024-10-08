@@ -27,7 +27,7 @@ int candidate_count;
 // Function prototypes
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
-void add_pairs(void);
+void add_pairs(void);   
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
