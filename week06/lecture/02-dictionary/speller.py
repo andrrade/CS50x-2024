@@ -45,29 +45,18 @@ def main():
     for enc in encodings:
         try:
             with open(text, 'r', encoding=enc) as file:
-                word = ''
-                while True:
-                    c = file.read(1)
-                    if not c:  # End of file
-                        break
+                # Read all words at once and split by whitespace and non-alpha characters
+                words = re.findall(r"[a-zA-Z']+", file.read())
+                words_in_text = len(words)  # Count total valid words in the text
 
-                    if c.isalpha() or (c == "'" and word):  # Allow alphabetical characters and apostrophes
-                        word += c
-                    else:
-                        if word:  # If a complete word is found
-                            words_in_text += 1  # Count the word
-                            # Time the check function
-                            start_check = time.time()
-                            if not check(word):
-                                print(word)
-                                misspellings += 1
-                            end_check = time.time()
-                            total_time_check += (end_check - start_check)
-
-                            word = ''  # Reset word
-
-                        if c.isdigit() or not c.isalnum():  # Ignore words with numbers and other characters
-                            word = ''  # Reset word
+                for word in words:
+                    # Time the check function
+                    start_check = time.time()
+                    if not check(word):
+                        print(word)  # Print misspelled words
+                        misspellings += 1
+                    end_check = time.time()
+                    total_time_check += (end_check - start_check)
 
             break  # Exit the loop if read is successful
 
@@ -111,4 +100,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
