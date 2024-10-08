@@ -1,7 +1,7 @@
 #include <cs50.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
 // Max number of candidates
 #define MAX 9
@@ -115,20 +115,16 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    // Loop pelos candidatos preferidos
+    // Loop through each candidate's rank
     for (int i = 0; i < candidate_count; i++)
     {
-        // Loop pelos candidatos não preferidos
-        for (int j = 0; j < candidate_count; j++)
+        // Loop through candidates that are ranked lower than the current candidate
+        for (int j = i + 1; j < candidate_count; j++)
         {
-            // Verifique se i é preferido a j e que não são o mesmo candidato
-            if (i != j && ranks[i] < ranks[j])
-            {
-                preferences[ranks[i]][ranks[j]]++; // Atualize a matriz preferences
-            }
+            // Update preferences: i is preferred over j
+            preferences[ranks[i]][ranks[j]]++;
         }
     }
-    return;
 }
 
 // Record pairs of candidates where one is preferred over the other
