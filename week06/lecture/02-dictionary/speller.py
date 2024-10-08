@@ -3,7 +3,7 @@ import time
 import os
 
 # Default dictionary
-DICTIONARY = "dictionaries/large.txt"
+DICTIONARY = "dictionaries/large"
 
 # Global set to store words
 words = set()
