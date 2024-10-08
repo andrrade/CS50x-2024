@@ -133,27 +133,100 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    // TODO
+    pair_count = 0; // Reinicie a contagem de pares
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            // Evite comparar o mesmo candidato
+            if (i != j)
+            {
+                // Verifique se o candidato i é preferido ao candidato j
+                if (preferences[i][j] > preferences[j][i])
+                {
+                    // Adicione o par ao array de pares
+                    pairs[pair_count].winner = i;
+                    pairs[pair_count].loser = j;
+                    pair_count++; // Incrementa o contador de pares
+
+                    // Certifique-se de não exceder o tamanho máximo
+                    if (pair_count >= MAX * (MAX - 1) / 2)
+                    {
+                        return; // Não adicione mais pares se já estiver cheio
+                    }
+                }
+            }
+        }
+    }
     return;
 }
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    // TODO
+    for (int i = 0; i < pair_count - 1; i++)
+    {
+        for (int j = 0; j < pair_count - i - 1; j++)
+        {
+            int strengthA = preferences[pairs[j].winner][pairs[j].loser];
+            int strengthB = preferences[pairs[j + 1].winner][pairs[j + 1].loser];
+
+            // Se o par j é mais fraco que o par j+1, troque
+            if (strengthA < strengthB)
+            {
+                pair temp = pairs[j];
+                pairs[j] = pairs[j + 1];
+                pairs[j + 1] = temp;
+            }
+        }
+    }
     return;
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        // Verifique se adicionar o par não cria um ciclo
+        // Se não houver ciclo, trancamos o par
+        if (!creates_cycle(pairs[i].winner, pairs[i].loser))
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
+    }
     return;
+}
+
+// Função auxiliar para verificar a criação de ciclos
+bool creates_cycle(int winner, int loser)
+{
+    // Um método simples de verificação de ciclos pode usar DFS ou BFS.
+    // Você pode implementar uma função que verifica se já existe um caminho
+    // do loser até o winner (ciclo).
+    return false; // Implementação de verificação de ciclo a ser adicionada.
 }
 
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        bool is_winner = true; // Assume que é o vencedor
+        for (int j = 0; j < candidate_count; j++)
+        {
+            // Se houver alguém que derrotou este candidato, ele não é o vencedor
+            if (locked[j][i])
+            {
+                is_winner = false;
+                break; // Não é um vencedor
+            }
+        }
+        if (is_winner)
+        {
+            printf("%s\n", candidates[i]); // Imprime o nome do vencedor
+            return;
+        }
+    }
     return;
 }
