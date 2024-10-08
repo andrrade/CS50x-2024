@@ -2,7 +2,8 @@ from cs50 import get_int
 
 # or
 # import cs50
-# l
+# x = cs50.get_int("x: ")
+# y = cs50.get_int("y: ")
 
 x = get_int("x: ")
 y = get_int("y: ")
