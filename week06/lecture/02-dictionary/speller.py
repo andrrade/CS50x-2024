@@ -1,93 +1,87 @@
-import sys
 import time
 
-# Importar funções do módulo dictionary
-from dictionary import load, check, size, unload
+# Define um conjunto global para armazenar as palavras do dicionário
+words = set()
 
-# Default dictionary
-DICTIONARY = "dictionaries/large.txt"
+def check(word):
+    """Verifica se uma palavra está no dicionário."""
+    return word.lower() in words
 
-def calculate(start_time, end_time):
-    """Calculate elapsed time in seconds."""
-    return end_time - start_time
-
-def main():
-    # Check for correct number of args
-    if len(sys.argv) not in (2, 3):
-        print("Usage: python speller.py [DICTIONARY] text")
-        return 1
-
-    # Benchmarking variables
-    time_load, time_check, time_size, time_unload = 0.0, 0.0, 0.0, 0.0
-
-    # Determine dictionary to use
-    dictionary = sys.argv[1] if len(sys.argv) == 3 else DICTIONARY
-
-    # Load dictionary
-    start_time = time.time()
-    if not load(dictionary):
-        print(f"Could not load {dictionary}.")
-        return 1
-    end_time = time.time()
-    time_load = calculate(start_time, end_time)
-
-    # Try to open text
-    text = sys.argv[2] if len(sys.argv) == 3 else sys.argv[1]
+def load(dictionary):
+    """Carrega o dicionário a partir de um arquivo."""
     try:
-        with open(text, 'r') as file:
-            print("\nMISSPELLED WORDS\n")
-            misspellings, words = 0, 0
-            word = ''
+        with open(dictionary, 'r') as file:
+            words.update(file.read().splitlines())
+        return True
+    except FileNotFoundError:
+        print(f"Could not load {dictionary}. File not found.")
+        return False
+
+def size():
+    """Retorna o número de palavras no dicionário."""
+    return len(words)
+
+def unload():
+    """Descarrega o dicionário (neste caso, apenas retorna True)."""
+    return True
+
+def calculate(start, end):
+    """Calcula o tempo decorrido entre start e end."""
+    return end - start
+
+def main(dictionary_file, text_file):
+    """Função principal que executa o verificador de ortografia."""
+    # Carregar o dicionário
+    if not load(dictionary_file):
+        return
+
+    # Variáveis para contagem e tempo
+    misspellings = 0
+    words_checked = 0
+    time_check = 0.0
+    word = ''
+
+    # Tenta abrir o arquivo de texto
+    try:
+        with open(text_file, 'r') as file:
+            # Ler e verificar cada caractere
             for c in file.read():
-                # Allow only alphabetical characters and apostrophes
+                # Permitir apenas caracteres alfabéticos e apóstrofos
                 if c.isalpha() or (c == "'" and word):
                     word += c
                 else:
-                    if word:
-                        words += 1
+                    if word:  # Se encontramos uma palavra
+                        words_checked += 1
                         start_time = time.time()
-                        if not check(word):
-                            print(word)
+                        if not check(word):  # Verifica a ortografia
+                            print(word)  # Imprime palavras incorretas
                             misspellings += 1
                         end_time = time.time()
                         time_check += calculate(start_time, end_time)
-                        word = ''  # Reset for next word
+                        word = ''  # Reinicia para a próxima palavra
 
-            # Check for any error while reading
-            if file.closed:
-                print(f"Error reading {text}.")
-                unload()
-                return 1
+            # Verifica se há uma palavra restante no final
+            if word:
+                words_checked += 1
+                start_time = time.time()
+                if not check(word):
+                    print(word)
+                    misspellings += 1
+                end_time = time.time()
+                time_check += calculate(start_time, end_time)
 
     except FileNotFoundError:
-        print(f"Could not open {text}.")
+        print(f"Could not open {text_file}. File not found.")
         unload()
-        return 1
+        return
 
-    # Determine dictionary's size
-    start_time = time.time()
-    n = size()
-    end_time = time.time()
-    time_size = calculate(start_time, end_time)
+    # Relatório final
+    print(f"\nWORDS MISSPELLED: {misspellings}")
+    print(f"WORDS IN DICTIONARY: {size()}")
+    print(f"WORDS IN TEXT: {words_checked}")
+    print(f"TIME IN CHECK: {time_check:.2f} seconds")
 
-    # Unload dictionary
-    start_time = time.time()
-    unload()
-    end_time = time.time()
-    time_unload = calculate(start_time, end_time)
-
-    # Report benchmarks
-    print(f"\nWORDS MISSPELLED:     {misspellings}")
-    print(f"WORDS IN DICTIONARY:  {n}")
-    print(f"WORDS IN TEXT:        {words}")
-    print(f"TIME IN load:         {time_load:.2f}")
-    print(f"TIME IN check:        {time_check:.2f}")
-    print(f"TIME IN size:         {time_size:.2f}")
-    print(f"TIME IN unload:       {time_unload:.2f}")
-    print(f"TIME IN TOTAL:        {time_load + time_check + time_size + time_unload:.2f}\n")
-
-    return 0
-
-# Run the program
 if __name__ == "__main__":
-    sys.exit(main())
+    DICTIONARY = "dictionaries/large.txt"  # Substitua pelo caminho correto
+    TEXT = "texts/holmes.txt"  # Substitua pelo caminho correto
+    main(DICTIONARY, TEXT)
