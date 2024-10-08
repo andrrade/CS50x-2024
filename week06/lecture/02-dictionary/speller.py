@@ -1,7 +1,6 @@
 import sys
 import time
 import os
-import re
 from dictionary import load, check, size, unload  # Importar as funções do dictionary.py
 
 # Default dictionary
@@ -40,33 +39,44 @@ def main():
     words_in_text = 0
     total_time_check = 0
 
-    try:
-        with open(text, 'r', encoding='utf-8') as file:
-            content = file.read()
+    # List of encodings to try
+    encodings = ['utf-8', 'ISO-8859-1', 'windows-1252']
 
-            # Find all words in the text using regex
-            words = re.findall(r"[a-zA-Z']+", content)  # Capture words with letters and apostrophes
-            words_in_text = len(words)  # Count total words
-            print(f"Total words in text: {words_in_text}")  # Print total words for debugging
+    for enc in encodings:
+        try:
+            with open(text, 'r', encoding=enc) as file:
+                word = ''
+                while True:
+                    c = file.read(1)
+                    if not c:  # End of file
+                        break
 
-            for word in words:
-                print(f"Checking word: {word}")  # Print each word being checked
-                # Time the check function
-                start_check = time.time()
-                if not check(word):
-                    print(word)  # Print misspelled words
-                    misspellings += 1
-                end_check = time.time()
-                total_time_check += (end_check - start_check)
+                    if c.isalpha() or (c == "'" and word):  # Allow alphabetical characters and apostrophes
+                        word += c
+                    else:
+                        if word:  # If a complete word is found
+                            words_in_text += 1  # Count the word
+                            # Time the check function
+                            start_check = time.time()
+                            if not check(word):
+                                print(word)
+                                misspellings += 1
+                            end_check = time.time()
+                            total_time_check += (end_check - start_check)
 
-    except UnicodeDecodeError:
-        print(f"Error reading {text}. The file might not be in UTF-8 encoding.")
-        unload()
-        return 1
-    except Exception as e:
-        print(f"An error occurred while reading {text}: {e}")
-        unload()
-        return 1
+                            word = ''  # Reset word
+
+                        if c.isdigit() or not c.isalnum():  # Ignore words with numbers and other characters
+                            word = ''  # Reset word
+
+            break  # Exit the loop if read is successful
+
+        except UnicodeDecodeError:
+            print(f"Failed to read {text} with encoding {enc}. Trying next...")
+        except Exception as e:
+            print(f"An error occurred while reading {text}: {e}")
+            unload()
+            return 1
 
     # Determine dictionary's size and time it
     start_size = time.time()
@@ -101,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
