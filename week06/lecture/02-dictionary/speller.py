@@ -1,6 +1,7 @@
 import sys
 import time
 import os
+import re  # Importando a biblioteca re para expressões regulares
 from dictionary import load, check, size, unload  # Importar as funções do dictionary.py
 
 # Default dictionary
@@ -31,9 +32,6 @@ def main():
         unload()
         return 1
 
-    # Prepare to report misspellings
-    print("\nMISSPELLED WORDS\n")
-
     # Prepare to spell-check
     misspellings = 0
     words_in_text = 0
@@ -41,6 +39,9 @@ def main():
 
     # List of encodings to try
     encodings = ['utf-8', 'ISO-8859-1', 'windows-1252']
+
+    # Print the heading for misspelled words
+    print("\nMISSPELLED WORDS\n")
 
     for enc in encodings:
         try:
