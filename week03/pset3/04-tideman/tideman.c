@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Max number of candidates
 #define MAX 9
@@ -32,6 +33,8 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool creates_cycle(int winner, int loser);
+bool has_path(int start, int end); // Function to check for path in graph
 
 int main(int argc, string argv[])
 {
@@ -85,7 +88,6 @@ int main(int argc, string argv[])
         }
 
         record_preferences(ranks);
-
         printf("\n");
     }
 
@@ -120,7 +122,7 @@ void record_preferences(int ranks[])
         for (int j = 0; j < candidate_count; j++)
         {
             // Verifique se i é preferido a j e que não são o mesmo candidato
-            if (i != j && ranks[i] < ranks[j] )
+            if (i != j && ranks[i] < ranks[j])
             {
                 preferences[ranks[i]][ranks[j]]++; // Atualize a matriz preferences
             }
@@ -128,7 +130,6 @@ void record_preferences(int ranks[])
     }
     return;
 }
-
 
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
@@ -201,10 +202,49 @@ void lock_pairs(void)
 // Função auxiliar para verificar a criação de ciclos
 bool creates_cycle(int winner, int loser)
 {
-    // Um método simples de verificação de ciclos pode usar DFS ou BFS.
-    // Você pode implementar uma função que verifica se já existe um caminho
-    // do loser até o winner (ciclo).
-    return false; // Implementação de verificação de ciclo a ser adicionada.
+    // Verifique se há um caminho do loser até o winner
+    return has_path(loser, winner);
+}
+
+// Função para verificar se há um caminho em um grafo
+bool has_path(int start, int end)
+{
+    // Cria um array para marcar visitados
+    bool visited[MAX] = {false};
+
+    // Cria uma fila para a busca
+    int stack[MAX], top = 0;
+    stack[top++] = start;
+
+    // Enquanto houver elementos na pilha
+    while (top > 0)
+    {
+        int current = stack[--top];
+        // Se já visitamos este candidato, continue
+        if (visited[current])
+        {
+            continue;
+        }
+
+        // Marque como visitado
+        visited[current] = true;
+
+        // Verifique se há um caminho
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[current][i])
+            {
+                // Se encontramos um caminho para o vencedor, retorne verdadeiro
+                if (i == end)
+                {
+                    return true;
+                }
+                // Adicione o candidato à pilha para continuar a busca
+                stack[top++] = i;
+            }
+        }
+    }
+    return false; // Não há caminho do loser ao winner
 }
 
 // Print the winner of the election
