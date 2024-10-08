@@ -6,9 +6,6 @@ from dictionary import load, check, size, unload  # Importar as funções do dic
 # Default dictionary
 DICTIONARY = "dictionaries/large"
 
-# Global set to store words
-words = set()
-
 def main():
     # Check for correct number of args
     if len(sys.argv) != 2 and len(sys.argv) != 3:
@@ -58,8 +55,7 @@ def main():
                         word += c
                     else:
                         if word:  # If a complete word is found
-                            words_in_text += 1
-
+                            words_in_text += 1  # Count the word
                             # Time the check function
                             start_check = time.time()
                             if not check(word):
@@ -70,9 +66,7 @@ def main():
 
                             word = ''  # Reset word
 
-                        if c.isdigit():  # Ignore words with numbers
-                            while c and c.isalnum():  # Consume alphanumeric string
-                                c = file.read(1)
+                        if c.isdigit() or not c.isalnum():  # Ignore words with numbers and other characters
                             word = ''  # Reset word
 
             break  # Exit the loop if read is successful
