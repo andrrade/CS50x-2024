@@ -6,4 +6,5 @@ for n in names:
     if (name == n):
         print("Found")
         break
-print("Not found")
+else: # for lloops can have an else clause
+    print("Not found")
