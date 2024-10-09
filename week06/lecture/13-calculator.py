@@ -9,7 +9,8 @@ def get_int(prompt):
         try:
             return int(input(prompt))
         except ValueError:
-            print("Not an integer")
+            # print("Not an integer")
+            pass
 
 
 def main():
