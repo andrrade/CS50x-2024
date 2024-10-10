@@ -12,8 +12,9 @@ name = input("Name: ")
 
 for person in people:
     if person["name"] == name:
-        number = person["number"]
-        print(f"Found {number}")
+        # number = person["number"]
+        # print(f"Found {number}")
+        print(f"Found {person['number']}")
         break
 else:
     print("Not found")
