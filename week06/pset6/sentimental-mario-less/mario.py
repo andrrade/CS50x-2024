@@ -6,5 +6,5 @@ while True:
         break
 
 for _ in range(n):
+    if ()
     print("#" * n)
-
