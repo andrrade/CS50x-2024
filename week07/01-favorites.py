@@ -15,7 +15,7 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
         else:
             counts[favorite] = 1
 
-for favorite in counts: # for something in that dictionary
+for favorite in sorted(counts: # for something in that dictionary
     print(f"{favorite}: {counts[favorite]}")
 
 
