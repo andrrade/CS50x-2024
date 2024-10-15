@@ -1,19 +1,27 @@
 import csv
 
+from collections import Counter
+
 # file = open("favorites.csv", "r")
 # # Do something with file
 # close(file)
 
 with open("favorites.csv", "r") as file: # "witg" means that the file will be automatically closed later
     reader = csv.DictReader(file)
-    counts = {} # or: dict()
+    conts = Counter()
 
     for row in reader:
         favorite = row["language"]
-        if favorite in counts:
-            counts[favorite] += 1
-        else:
-            counts[favorite] = 1
+        counts[favorite] += 1
+
+    # counts = {} # or: dict()
+
+    # for row in reader:
+    #     favorite = row["language"]
+    #     if favorite in counts:
+    #         counts[favorite] += 1
+    #     else:
+    #         counts[favorite] = 1
 
 for favorite in sorted(counts, key=counts.get, reverse=True): # for something in that dictionary # get the value for that key
     print(f"{favorite}: {counts[favorite]}")
