@@ -11,7 +11,8 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
     counts = Counter()
 
     for row in reader:
-        favorite = row["language"]
+        # favorite = row["language"]
+        favorite = row["problem"]
         counts[favorite] += 1
 
 favorite = input("Favorite: ")
