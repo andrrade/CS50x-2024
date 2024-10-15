@@ -8,7 +8,7 @@ from collections import Counter
 
 with open("favorites.csv", "r") as file: # "witg" means that the file will be automatically closed later
     reader = csv.DictReader(file)
-    conts = Counter()
+    counts = Counter()
 
     for row in reader:
         favorite = row["language"]
@@ -25,7 +25,7 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
 
 # for favorite in sorted(counts, key=counts.get, reverse=True): # for something in that dictionary # get the value for that key
 for favorite, count in counts.most_common():
-    print(f"{favorite}: {counts[favorite]}")
+    print(f"{favorite}: {counts}")
 
 
 #     # next(reader) # skip the header
