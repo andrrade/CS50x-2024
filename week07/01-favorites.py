@@ -8,4 +8,5 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
     reader = csv.reader(file)
     next(reader)
     for row in reader:
-        print(row[1])
+        favorite = row[1]
+        print(favorite)
