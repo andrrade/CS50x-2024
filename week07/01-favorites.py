@@ -8,5 +8,4 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
     reader = csv.reader(file)
     # next(reader) # skip the header
     for row in reader:
-        favorite = row[1]
-        print(favorite)
+        print(row["language"])
