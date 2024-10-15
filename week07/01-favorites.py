@@ -14,6 +14,9 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
         favorite = row["language"]
         counts[favorite] += 1
 
+favorite = input("Favorite: ")
+print(f"{favorite}: {counts[favorite]}")
+
     # counts = {} # or: dict()
 
     # for row in reader:
@@ -24,8 +27,8 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
     #         counts[favorite] = 1
 
 # for favorite in sorted(counts, key=counts.get, reverse=True): # for something in that dictionary # get the value for that key
-for favorite, count in counts.most_common():
-    print(f"{favorite}: {count}")
+# for favorite, count in counts.most_common():
+#     print(f"{favorite}: {count}")
 
 
 #     # next(reader) # skip the header
