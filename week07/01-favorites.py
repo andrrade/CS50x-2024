@@ -24,7 +24,7 @@ with open("favorites.csv", "r") as file: # "witg" means that the file will be au
     #         counts[favorite] = 1
 
 # for favorite in sorted(counts, key=counts.get, reverse=True): # for something in that dictionary # get the value for that key
-for favorite, count in counts:
+for favorite, count in counts.most_common():
     print(f"{favorite}: {counts[favorite]}")
 
 
