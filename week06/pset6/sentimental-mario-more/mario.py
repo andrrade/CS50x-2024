@@ -12,6 +12,5 @@ for i in range(1, n + 1):
     print(" " * spaces, end="")
     print("#" * hashes)
 
-print(end)
 for i in range(1, n + 1):  # De 1 a n
     print("#" * i)  # Imprime i hashes
