@@ -6,8 +6,8 @@ while True:
         break
 
 for i in range(n, 0, -1):  # Começa de n e vai até 1
-    spaces = n - i
     hashes = i
+    spaces = n - i
 
-    print(" " * spaces, end="")
-    print("#" * hashes)
+    print("#" * hashes, end="")  # Imprime os hashes à esquerda
+    print(" " * spaces)  # Imprime os espaços à direita
