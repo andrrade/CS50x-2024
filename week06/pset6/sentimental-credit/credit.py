@@ -1,4 +1,4 @@
-from cs50 import get_long
+from cs50 import get_int
 
 # Função para determinar o comprimento (número de dígitos) do cartão
 def get_length(number):
@@ -51,7 +51,7 @@ def get_sum(number):
 
 def main():
     while True:
-        number = get_long("Number: ")  # Solicita o número do cartão ao usuário
+        number = get_int("Number: ")  # Solicita o número do cartão ao usuário
         if number >= 0:  # Verifica se o número é positivo
             break
 
