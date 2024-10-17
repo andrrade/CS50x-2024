@@ -3,25 +3,25 @@ import sys
 
 
 def main():
-    # TODO: Check for command-line usage
+    # TODO: Verificar o uso da linha de comando
     if len(sys.argv) != 3:
         sys.exit()
 
-    # TODO: Read database file into a variable
+    # TODO: Ler o arquivo do banco de dados em uma variável
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
         data = list(reader)
 
-    # TODO: Read DNA sequence file into a variable
+    # TODO: Ler o arquivo da sequência de DNA em uma variável
     with open(sys.argv[2], "r") as file:
         seq = file.read()
 
-    # TODO: Find longest match of each STR in DNA sequence
+    # TODO: Encontrar a correspondência mais longa de cada STR na sequência de DNA
     STR = []
     for i in range(1, len(reader.fieldnames)):
         STR.append(longest_match(seq, reader.fieldnames[i]))
 
-    # TODO: Check database for matching profiles
+    # TODO: Verificar o banco de dados em busca de perfis correspondentes
     for i in range(len(data)):
         matches = 0
         for j in range(1, len(reader.fieldnames)):
@@ -34,40 +34,40 @@ def main():
 
 
 def longest_match(sequence, subsequence):
-    """Returns length of the longest run of subsequence in sequence."""
+    # Retorna o comprimento da sequência mais longa de subsequência na sequência.
 
-    # Initialize variables
+    # Inicializar variáveis
     longest_run = 0
     subsequence_length = len(subsequence)
     sequence_length = len(sequence)
 
-    # Check each character in sequence for most consecutive runs of subsequence
+    # Verificar cada caractere na sequência em busca do maior número de ocorrências consecutivas da subsequência
     for i in range(sequence_length):
 
-        # Initialize count of consecutive runs
+        # Inicializar contagem de ocorrências consecutivas
         count = 0
 
-        # Check for a subsequence match in a "substring" (a subset of characters) within sequence
-        # If a match, move substring to next potential match in sequence
-        # Continue moving substring and checking for matches until out of consecutive matches
+        # Verificar por uma correspondência da subsequência em um "substring" (um subconjunto de caracteres) dentro da sequência
+        # Se houver correspondência, mover o substring para a próxima correspondência potencial na sequência
+        # Continuar movendo o substring e verificando por correspondências até que não haja mais correspondências consecutivas
         while True:
 
-            # Adjust substring start and end
+            # Ajustar início e fim do substring
             start = i + count * subsequence_length
             end = start + subsequence_length
 
-            # If there is a match in the substring
+            # Se houver uma correspondência no substring
             if sequence[start:end] == subsequence:
                 count += 1
 
-            # If there is no match in the substring
+            # Se não houver correspondência no substring
             else:
                 break
 
-        # Update most consecutive matches found
+        # Atualizar o maior número de correspondências consecutivas encontrado
         longest_run = max(longest_run, count)
 
-    # After checking for runs at each character in sequence, return longest run found
+    # Após verificar as ocorrências em cada caractere da sequência, retornar a maior ocorrência encontrada
     return longest_run
 
 
