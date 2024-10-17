@@ -1,6 +1,8 @@
 from cs50 import get_int
 
 # Função para determinar o comprimento (número de dígitos) do cartão
+
+
 def get_length(number):
     length = 0
     while number > 0:
@@ -9,12 +11,16 @@ def get_length(number):
     return length
 
 # Função para obter os primeiros dígitos do cartão
+
+
 def first_numbers(number):
     while number >= 100:
         number //= 10  # Remove o último dígito
     return number  # Retorna os primeiros dígitos
 
 # Função para identificar o tipo de cartão
+
+
 def what_card(number):
     length = get_length(number)  # Obtém o comprimento do número do cartão
     firsts = first_numbers(number)  # Obtém os dois primeiros dígitos
@@ -30,6 +36,8 @@ def what_card(number):
         print("INVALID")  # Caso nenhum tipo de cartão seja identificado
 
 # Função para calcular a soma dos dígitos usando o algoritmo de Luhn
+
+
 def get_sum(number):
     total_sum = 0  # Inicializa a soma
     toggle = False  # Flag para alternar a multiplicação
@@ -49,6 +57,7 @@ def get_sum(number):
 
     return total_sum % 10 == 0  # Retorna True se a soma total for divisível por 10, caso contrário, False
 
+
 def main():
     while True:
         number = get_int("Number: ")  # Solicita o número do cartão ao usuário
@@ -59,5 +68,6 @@ def main():
         what_card(number)  # Determina o tipo de cartão com base no número
     else:
         print("INVALID")  # Imprime "INVALID" se o número for inválido
+
 
 main()
