@@ -11,7 +11,8 @@ for i in range(1, n + 1):
     spaces = n - i  # Calcula os espaços para alinhar à direita
     hashes = i  # Determina a quantidade de hashes
 
-    # Imprime uma linha contendo a primeira pirâmide, dois espaços, e a segunda pirâmide
-    print(" " * spaces, end="")  # Imprime os espaços para alinhar a primeira pirâmide
-    print("#" * hashes, end="  ")  # Imprime os hashes da primeira pirâmide e adiciona dois espaços
-    print("#" * hashes)  # Imprime os hashes da segunda pirâmide
+    # Imprime os espaços e a primeira pirâmide
+    print(" " * spaces, end="")
+    print("#" * hashes, end="  ")  # Adiciona dois espaços entre as pirâmides
+    # Imprime a segunda pirâmide sem espaços à frente
+    print("#" * hashes)
