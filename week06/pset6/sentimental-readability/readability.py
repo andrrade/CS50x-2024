@@ -13,8 +13,8 @@ def count(type, text):
         elif type == 3 and (text[i] in ['.', '!', '?']):
             counter += 1
 
-    if type == 2:
-        counter += 1
+    if type == 2 and length > 0:
+        counter += 1  # Adiciona 1 se houver pelo menos uma palavra
 
     return counter
 
