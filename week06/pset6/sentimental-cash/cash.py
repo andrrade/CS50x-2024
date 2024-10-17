@@ -1,13 +1,17 @@
 from cs50 import get_float
 
+
 def how_much(cents, coin_type):
     return cents // coin_type  # Usar // para obter a parte inteira
+
 
 def main():
     while True:
         change = get_float("Change owed: ")
         if change >= 0:
             break
+
+    change = round(change * 100)
 
     quarters = how_much(change, 25)
     change -= quarters * 25
@@ -23,5 +27,6 @@ def main():
 
     total = quarters + dimes + nickels + pennies
     print(total)
+
 
 main()
