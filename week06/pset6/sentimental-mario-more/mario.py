@@ -15,4 +15,3 @@ for i in range(1, n + 1):
 
     # Para a segunda pirâmide (à direita)
     print("#" * i)  # Imprime a segunda pirâmide
-
