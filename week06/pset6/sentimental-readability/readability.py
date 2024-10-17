@@ -1,36 +1,45 @@
 from cs50 import get_string
 import math
 
-def count(type, text):
-    counter = 0
-    length = len(text)
+def count_letters(text):
+    """Counts the number of letters in the text."""
+    count = 0
+    for char in text:
+        if char.isalpha():  # Check if the character is a letter
+            count += 1
+    return count
 
-    for i in range(length):
-        if type == 1 and text[i].isalpha():
-            counter += 1
-        elif type == 2 and (i == 0 or text[i - 1].isspace()):
-            counter += 1
-        elif type == 3 and (text[i] in ['.', '!', '?']):
-            counter += 1
+def count_words(text):
+    """Counts the number of words in the text."""
+    # Split the text by whitespace and filter out any empty strings
+    words = text.split()
+    return len(words)
 
-    if type == 2 and length > 0:
-        counter += 1  # Adiciona 1 se houver pelo menos uma palavra
+def count_sentences(text):
+    """Counts the number of sentences in the text."""
+    count = 0
+    for char in text:
+        if char in ['.', '!', '?']:  # Check for sentence-ending punctuation
+            count += 1
+    return count
 
-    return counter
-
-def Liau(letters, words, sentences):
-    L = (letters / words) * 100
-    S = (sentences / words) * 100
+def calculate_grade(letters, words, sentences):
+    """Calculates the Coleman-Liau index."""
+    L = (letters / words) * 100  # Average letters per 100 words
+    S = (sentences / words) * 100  # Average sentences per 100 words
     index = 0.0588 * L - 0.296 * S - 15.8
-    return round(index)
+    return round(index)  # Round to nearest integer
 
 def main():
-    text = get_string("Text: ")
-    letters = count(1, text)
-    words = count(2, text)
-    sentences = count(3, text)
-    grade = Liau(letters, words, sentences)
+    text = get_string("Text: ")  # Get user input
+    letters = count_letters(text)  # Count letters
+    words = count_words(text)  # Count words
+    sentences = count_sentences(text)  # Count sentences
 
+    # Calculate the grade level
+    grade = calculate_grade(letters, words, sentences)
+
+    # Output the grade level
     if grade < 1:
         print("Before Grade 1")
     elif grade >= 16:
@@ -38,4 +47,5 @@ def main():
     else:
         print(f"Grade {grade}")
 
-main()
+if __name__ == "__main__":
+    main()
