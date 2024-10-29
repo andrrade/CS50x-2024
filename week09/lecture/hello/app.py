@@ -12,12 +12,5 @@ def index():
 @app.route("/greet", methods=["POST"])
 def greet():
     name = request.form.get("name", "world")
-    return render_template("02-greet.html", name=name)
+    return render_template("01-greet.html", name=name)
 
-# @app.route("/", methods=["GET"], ["POST"])
-# def index():
-#     if request.method == "POST":
-#         name = request.form.get("name", "world")
-#         return render_template("02-greet.html", name=name)
-#     else:
-#         return render_template("01-index.html")
