@@ -9,5 +9,6 @@ def index():
 
 
 @app.route("/register")
-def register:
-    
+def register():
+    if not request.form.get("name"):
+        return "failure"
