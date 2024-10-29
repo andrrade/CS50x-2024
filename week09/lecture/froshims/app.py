@@ -12,3 +12,4 @@ def index():
 def register():
     if not request.form.get("name"):
         return "failure"
+    return "success"
