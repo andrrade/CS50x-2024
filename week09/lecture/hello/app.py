@@ -13,3 +13,8 @@ def index():
 def greet():
     name = request.form.get("name", "world")
     return render_template("02-greet.html", name=name)
+
+@app.route("/", methods=["GET"], ["POST"])
+def index():
+    name = request.form.get("name", "world")
+    return render_template("02-greet.html", name=name)
