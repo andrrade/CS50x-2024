@@ -3,14 +3,14 @@
 </h1>
 
 <p align="center">
- Respositório criado durante o curso de CS50
+ Repository created during the CS50 course
 </p>
 
 <p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-link-do-projeto">Link do Projeto</a>
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project-link">Project Link</a>
 </p>
 
 <p align="center">
@@ -24,31 +24,31 @@
 -->
 
 <!--
-##  📂 Projeto
+##  📂 Project
 
 <p align="center">
-  <img alt="Projeto img 1" src="https://github.com/user-attachments/assets/0cb23027-6b11-4e6e-b52f-504b94657f6a">
+  <img alt="Project img 1" src="https://github.com/user-attachments/assets/0cb23027-6b11-4e6e-b52f-504b94657f6a">
 </p>
 -->
 
 ---
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
-Esse projeto foi desenvolvido utilizando:
+This project was developed using:
 
 - C
 - Python
 
 <!--
-## 🔗 Link do Projeto
+## 🔗 Project Link
 
-Para acessar o projeto <a href="" target="_blank">Clique Aqui</a>.
+To access the project, <a href="" target="_blank">Click Here</a>.
 -->
 
-## 📝 Licença
+## 📝 License
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+This project is under the MIT license. See the [LICENSE](./LICENSE) file for more details.
 
 <br>
 
